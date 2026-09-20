@@ -1,0 +1,5 @@
+{
+  "cleanUrls": true,
+  "buildCommand": "echo 'Bypassing build' && exit 0",
+  "outputDirectory": "dist"
+}

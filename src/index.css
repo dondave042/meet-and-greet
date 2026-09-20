@@ -1,0 +1,219 @@
+@import "tailwindcss";
+
+@theme {
+  /* Override Tailwind zinc colors to shades of black/obsidian for backgrounds */
+  --color-zinc-950: #09090b; /* pure obsidian black */
+  --color-zinc-900: #18181b; /* dark charcoal/obsidian */
+  --color-zinc-850: #202024; /* charcoal grey */
+  --color-zinc-800: #27272a; /* border charcoal */
+  --color-zinc-700: #3f3f46; /* medium grey */
+  --color-zinc-600: #52525b; /* grey */
+  --color-zinc-500: #71717a; /* light grey */
+  
+  /* Map accents to prestigious gold colors */
+  --color-amber-500: #d4af37; /* primary metallic gold */
+  --color-amber-400: #f3cd5c; /* lighter gold */
+  --color-amber-300: #fef08a; /* bright pale gold */
+  --color-rose-500: #c5a028; /* dark gold */
+  --color-rose-400: #d4af37;
+  --color-purple-600: #aa8418; /* darkest gold */
+  --color-purple-500: #c5a028;
+  
+  /* Map white to bright warm cream/white */
+  --color-white: #ffffff;
+}
+
+/* Global resets and body styling - Black and Gold */
+body {
+  background-color: #09090b !important; /* pure obsidian black background */
+  color: #f4f4f5 !important; /* crisp warm off-white text for ultimate readability */
+}
+
+/* Headings should be prestigious gold */
+h1, h2, h3, h4, h5, h6 {
+  color: #d4af37 !important; /* glowing metallic gold */
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8) !important;
+}
+
+/* General body text and writeup colors */
+p, label, li, td, th {
+  color: #e4e4e7 !important; /* clean off-white writeup */
+}
+
+span {
+  color: #e4e4e7 !important;
+}
+
+/* Metadata and secondary text */
+.text-zinc-400, .text-zinc-500, .text-zinc-600 {
+  color: #a1a1aa !important; /* medium grey for descriptions */
+}
+
+.text-zinc-300, .text-zinc-200, .text-zinc-100 {
+  color: #f4f4f5 !important; /* warm white */
+}
+
+/* Force card and container backgrounds to obsidian black with gold borders */
+.bg-zinc-900, .bg-zinc-950, .bg-zinc-900\/40, .bg-zinc-950\/40, .bg-zinc-900\/60, .bg-zinc-950\/60, .bg-zinc-950\/80 {
+  background-color: #18181b !important; /* dark obsidian black for cards */
+  border-color: rgba(212, 175, 55, 0.15) !important; /* thin, sleek gold borders */
+}
+
+.bg-zinc-950\/20, .bg-zinc-900\/20 {
+  background-color: #09090b !important;
+}
+
+/* Navigation overrides */
+nav {
+  background-color: #09090b !important; /* black navbar */
+  border-color: rgba(212, 175, 55, 0.15) !important;
+}
+
+nav button {
+  color: #e4e4e7 !important;
+}
+
+nav button:hover {
+  background-color: rgba(212, 175, 55, 0.1) !important;
+  color: #d4af37 !important;
+}
+
+/* Input elements styling */
+input, select, textarea {
+  background-color: #09090b !important; /* black input fields */
+  color: #ffffff !important; /* white text inside inputs */
+  border: 1px solid rgba(212, 175, 55, 0.25) !important; /* gold-tinted border */
+}
+
+input::placeholder, textarea::placeholder {
+  color: #71717a !important;
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: #d4af37 !important; /* gold focus border */
+}
+
+/* Subheading backgrounds / Alert Banners - Translucent Gold with Gold/White Text */
+.bg-rose-500\/10, .bg-red-500\/10, .bg-amber-500\/10, .bg-amber-500\/5, .bg-red-500\/5, .bg-rose-500\/5 {
+  background-color: rgba(212, 175, 55, 0.08) !important; /* transparent gold background */
+  border: 1px solid rgba(212, 175, 55, 0.2) !important; /* translucent gold border */
+}
+
+/* Ensure all text and icons inside translucent gold containers are white or gold */
+.bg-rose-500\/10 *, .bg-red-500\/10 *, .bg-amber-500\/10 *, .bg-amber-500\/5 *, .bg-red-500\/5 *, .bg-rose-500\/5 * {
+  color: #ffffff !important;
+}
+
+.bg-rose-500\/10 svg, .bg-red-500\/10 svg, .bg-amber-500\/10 svg, .bg-amber-500\/5 svg, .bg-red-500\/5 svg, .bg-rose-500\/5 svg {
+  stroke: #d4af37 !important;
+}
+
+/* Standard Buttons - Prestigious Solid Gold with Black Text */
+.bg-gradient-to-r, button[type="submit"], .bg-amber-500, .bg-red-600 {
+  background-image: none !important;
+  background-color: #d4af37 !important; /* solid gold */
+  color: #09090b !important; /* deep black text */
+  border: none !important;
+  font-weight: 800 !important;
+}
+
+.bg-gradient-to-r *, button[type="submit"] *, .bg-amber-500 *, .bg-red-600 * {
+  color: #09090b !important; /* black text inside solid gold buttons */
+}
+
+.bg-gradient-to-r:hover, button[type="submit"]:hover, .bg-amber-500:hover, .bg-red-600:hover {
+  background-color: #f3cd5c !important; /* lighter gold on hover */
+  color: #09090b !important;
+}
+
+/* Guidelines and secondary buttons */
+button.bg-zinc-800 {
+  background-color: #18181b !important; /* dark grey button */
+  color: #d4af37 !important; /* gold text */
+  border: 1px solid rgba(212, 175, 55, 0.2) !important;
+}
+
+button.bg-zinc-800:hover {
+  background-color: rgba(212, 175, 55, 0.1) !important;
+  color: #f3cd5c !important;
+}
+
+/* Chat boxes and special bubbles */
+.bg-rose-950\/30 {
+  background-color: rgba(212, 175, 55, 0.08) !important; /* translucent gold */
+  border-color: rgba(212, 175, 55, 0.2) !important;
+}
+
+.bg-amber-500.text-black {
+  background-color: #d4af37 !important; /* solid gold */
+  color: #09090b !important; /* black text */
+}
+
+.bg-amber-500.text-black * {
+  color: #09090b !important;
+}
+
+/* QR Code and Modals */
+.bg-white {
+  background-color: #ffffff !important; /* keep QR background white for scanning */
+}
+
+.bg-white * {
+  color: #000000 !important; /* keep QR code black */
+}
+
+/* Status Badges */
+.bg-emerald-500\/10 {
+  background-color: rgba(16, 185, 129, 0.12) !important; /* translucent green */
+  border: 1px solid rgba(16, 185, 129, 0.25) !important;
+}
+.bg-emerald-500\/10 * {
+  color: #34d399 !important; /* bright green text */
+}
+
+.bg-rose-500\/10 {
+  background-color: rgba(212, 175, 55, 0.1) !important; /* translucent gold */
+}
+.bg-rose-500\/10 * {
+  color: #f3cd5c !important; /* light gold text */
+}
+
+.bg-amber-500\/10 {
+  background-color: rgba(212, 175, 55, 0.12) !important; /* translucent gold */
+  border: 1px solid rgba(212, 175, 55, 0.25) !important;
+}
+.bg-amber-500\/10 * {
+  color: #f3cd5c !important; /* bright gold text */
+}
+
+.bg-amber-500\/5 {
+  background-color: rgba(212, 175, 55, 0.06) !important;
+}
+
+/* Ensure icons are colored gold */
+svg {
+  stroke: #d4af37 !important;
+}
+
+/* Except icons inside solid gold buttons */
+button.bg-gradient-to-r svg, button[type="submit"] svg, .bg-amber-500 svg, .bg-amber-500.text-black svg, .bg-red-600 svg {
+  stroke: #09090b !important;
+}
+
+/* Age Gate text contrast */
+.bg-red-700 {
+  background-color: #d4af37 !important; /* gold banner */
+  color: #09090b !important; /* black text */
+}
+.bg-red-700 * {
+  color: #09090b !important;
+}
+.bg-red-700 svg {
+  stroke: #09090b !important;
+}
+
+/* Trust Badges - Force text to white on dark cards */
+.trust-badge-text {
+  color: #ffffff !important;
+  font-weight: 700 !important;
+}
