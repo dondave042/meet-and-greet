@@ -207,7 +207,28 @@ export default function AdminPortal({ creators, onAddCreator, onUpdateCreator, o
         </div>
 
         {/* Sub-Tabs */}
-        <div className="flex gap-2">
+        <div className="flex flex-wrap gap-2">
+          <button
+            type="button"
+            onClick={() => {
+              const targetCreator = creators[0];
+              if (!targetCreator) {
+                alert('Add a creator profile before uploading a live teaser.');
+                return;
+              }
+              setSelectedCreatorForGallery(targetCreator);
+              setGalleryType('video');
+              setGalleryCategory('Charlotte Prestige Live Teasers & Short Clips');
+              setGalleryTitle('');
+              setGalleryUrl('');
+              setGalleryFileName('');
+              setUploadError('');
+            }}
+            className="px-4 py-2 rounded-xl text-xs font-bold flex items-center gap-1.5 bg-red-600 text-white hover:bg-red-700 transition"
+          >
+            <Upload className="h-3.5 w-3.5" />
+            Upload Live Teaser
+          </button>
           <button
             onClick={() => {
               setActiveTab('manage');
