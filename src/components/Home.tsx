@@ -411,12 +411,12 @@ export default function Home({ creators, setActiveTab, setPreselectedCreatorId, 
       </div>
 
       {/* Creator Testimonial Section */}
-      <div className="relative grid grid-cols-1 md:grid-cols-[190px_1fr] gap-8 items-center h-[300px] bg-gradient-to-r from-amber-500/5 to-rose-500/5 border border-zinc-900 p-8 rounded-2xl overflow-hidden">
+      <div className="relative grid grid-cols-1 md:grid-cols-[190px_1fr] gap-8 items-center h-[350px] bg-gradient-to-r from-amber-500/5 to-rose-500/5 border border-zinc-900 p-8 rounded-2xl overflow-hidden">
         <div className="relative z-10 w-[190px] h-[189px] mt-3 rounded-lg overflow-hidden">
           <img
             src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/adminpic-ZGLKmcsemGfSXiDCJG52dYJCiKyQix.jpg"
             alt="Charlotte Prestige creator endorsement portrait"
-            className="w-full h-full object-fill opacity-90 rounded-lg text-[10px]"
+            className="w-full h-full object-fill opacity-90 rounded-lg text-[10px] mb-[100px]"
             style={{ backgroundColor: 'rgba(243, 241, 239, 0.5)' }}
           />
           <div className="absolute inset-0 h-[225px] w-full rounded-2xl bg-gradient-to-t from-zinc-950 via-transparent to-transparent pointer-events-none" />
