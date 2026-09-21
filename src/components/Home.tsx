@@ -238,9 +238,9 @@ export default function Home({ creators, setActiveTab, setPreselectedCreatorId, 
 
       {/* NEW SECTION: Charlotte Prestige Live Teasers & Short Clips (4 Rows, 2 Columns of Mini Boxes) */}
       <div className="space-y-6">
-        <div className="flex items-center justify-between">
-          <div>
-            <h2 className="text-2xl font-serif font-black text-white flex items-center gap-2">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <div className="min-w-0">
+            <h2 className="text-xl sm:text-2xl font-serif font-black text-white flex items-start gap-2 break-words">
               <Video className="h-5 w-5 text-red-600 animate-pulse" />
               Charlotte Prestige Live Teasers &amp; Short Clips
             </h2>
@@ -411,27 +411,27 @@ export default function Home({ creators, setActiveTab, setPreselectedCreatorId, 
       </div>
 
       {/* Creator Testimonial Section */}
-      <div className="relative grid grid-cols-1 md:grid-cols-[190px_1fr] gap-8 items-center h-[350px] bg-gradient-to-r from-amber-500/5 to-rose-500/5 border border-zinc-900 p-8 rounded-2xl overflow-hidden">
-        <div className="relative z-10 w-[190px] h-[189px] mt-3 rounded-lg overflow-hidden">
+      <div className="relative grid grid-cols-1 md:grid-cols-[190px_1fr] gap-5 md:gap-8 items-center min-h-[350px] h-auto bg-gradient-to-r from-amber-500/5 to-rose-500/5 border border-zinc-900 p-4 sm:p-6 md:p-8 rounded-2xl overflow-hidden">
+        <div className="relative z-10 w-[190px] h-[189px] mt-3 md:mt-3 rounded-lg overflow-hidden">
           <img
             src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/adminpic-ZGLKmcsemGfSXiDCJG52dYJCiKyQix.jpg"
             alt="Charlotte Prestige creator endorsement portrait"
-            className="w-full h-full object-fill opacity-90 rounded-lg text-[10px] mb-[100px]"
+            className="w-full h-full object-fill opacity-90 rounded-lg text-[10px] mb-0 md:mb-[100px]"
             style={{ backgroundColor: 'rgba(243, 241, 239, 0.5)' }}
           />
           <div className="absolute inset-0 h-[225px] w-full rounded-2xl bg-gradient-to-t from-zinc-950 via-transparent to-transparent pointer-events-none" />
         </div>
-        <div className="space-y-4 mb-[120px]">
+        <div className="space-y-4 mb-0 md:mb-[120px] min-w-0 break-words">
           <div className="inline-flex items-center gap-1 bg-amber-500/10 text-amber-500 text-[10px] font-bold px-2.5 py-1 rounded-md uppercase">
             <Star className="h-3 w-3 fill-amber-500" />
             Creator Endorsement
           </div>
-          <h3 className="text-2xl font-serif font-black text-white mb-9">"Charlotte Prestige completely changed how I interact with my fans."</h3>
+          <h3 className="text-xl sm:text-2xl font-serif font-black text-white mb-6 md:mb-9 break-words">"Charlotte Prestige completely changed how I interact with my fans."</h3>
           <p className="text-xs text-zinc-400 leading-relaxed">
             "Before Charlotte Prestige, meeting fans at conventions or arranging business dinners was stressful and felt unsafe. The ID vetting and background check system weeds out bad actors immediately. The security escorts and escrow protection give me total peace of mind so I can focus on building genuine connections."
           </p>
           <div>
-            <span className="text-base font-bold text-white block mr-44 pr-9 w-[150px]">Daddy&apos;s pet</span>
+            <span className="text-base font-bold text-white block w-auto mr-0 pr-0 md:w-[150px] md:mr-44 md:pr-9">Daddy&apos;s pet</span>
             <span className="text-[10px] text-zinc-500">Premium Content Creator & Multi-Award Winner</span>
           </div>
         </div>
