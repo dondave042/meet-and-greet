@@ -24,6 +24,12 @@
 }
 
 /* Global resets and body styling - Black and Gold */
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+  overflow-wrap: anywhere;
+}
+
 body {
   background-color: #09090b !important; /* pure obsidian black background */
   color: #f4f4f5 !important; /* crisp warm off-white text for ultimate readability */
