@@ -99,7 +99,7 @@ export default function Footer({ setActiveTab, userRole, setUserRole }: FooterPr
                   <MessageSquare className="h-4 w-4 text-amber-500 shrink-0 group-hover:scale-110 transition" />
                   <div>
                     <span className="text-[10px] text-zinc-500 block leading-none font-bold">Secure Telegram Dispatch</span>
-                    <span className="font-bold text-white group-hover:underline">@lanatheblondie</span>
+                    <span className="text-sm font-bold text-white group-hover:underline">@silviadelgadogarcia</span>
                   </div>
                 </a>
               </div>
