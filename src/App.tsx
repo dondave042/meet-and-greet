@@ -23,83 +23,55 @@ function App() {
   const [preselectedBookingId, setPreselectedBookingId] = useState<string>('');
   const [selectedCreatorRules, setSelectedCreatorRules] = useState<Creator | null>(null);
 
-  // Dynamic list of creators (pornstars)
-  const [creatorsList, setCreatorsList] = useState<Creator[]>(() => {
-    const saved = localStorage.getItem('aura_creators');
-    if (saved) {
-      try {
-        return JSON.parse(saved);
-      } catch (e) {
-        console.error("Failed to parse creators from localStorage:", e);
-      }
-    }
-    return creators;
-  });
+  const [creatorsList, setCreatorsList] = useState<Creator[]>(creators);
+  const [isDatabaseReady, setIsDatabaseReady] = useState(false);
 
-  // Save creators to localStorage whenever they change
+  const persist = (body: unknown) => fetch('/api/data', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
+
   useEffect(() => {
-    localStorage.setItem('aura_creators', JSON.stringify(creatorsList));
-  }, [creatorsList]);
+    fetch('/api/data')
+      .then((response) => response.ok ? response.json() : Promise.reject(new Error('Database unavailable')))
+      .then((data) => {
+        if (data.creators?.length) setCreatorsList(data.creators);
+        if (data.bookings?.length) setBookings(data.bookings);
+        setIsDatabaseReady(true);
+      })
+      .catch((error) => console.error('[v0] Failed to load Neon data:', error));
+  }, []);
 
-  // Dynamic Fan Profile state
-  const [userProfile, setUserProfile] = useState<FanProfile | null>(() => {
-    const saved = localStorage.getItem('aura_fan_profile');
-    if (saved) {
-      try {
-        return JSON.parse(saved);
-      } catch (e) {
-        console.error("Failed to parse fan profile from localStorage:", e);
-      }
-    }
-    return null;
-  });
+  const [userProfile, setUserProfile] = useState<FanProfile | null>(null);
 
-  // Save fan profile to localStorage
   const handleSaveProfile = (profile: FanProfile) => {
     setUserProfile(profile);
-    localStorage.setItem('aura_fan_profile', JSON.stringify(profile));
+    void persist({ action: 'save_profile', profile });
   };
 
   // Delete fan profile
   const handleDeleteProfile = () => {
     setUserProfile(null);
-    localStorage.removeItem('aura_fan_profile');
   };
 
-  // Admin handlers for creators
   const handleAddCreator = (newCreator: Creator) => {
     setCreatorsList(prev => [newCreator, ...prev]);
+    void persist({ action: 'save_creator', creator: newCreator });
   };
 
   const handleUpdateCreator = (updatedCreator: Creator) => {
     setCreatorsList(prev => prev.map(c => c.id === updatedCreator.id ? updatedCreator : c));
+    void persist({ action: 'save_creator', creator: updatedCreator });
+    updatedCreator.gallery.forEach((item) => void persist({ action: 'save_gallery', galleryItem: { ...item, creatorId: updatedCreator.id } }));
   };
 
   const handleDeleteCreator = (creatorId: string) => {
     setCreatorsList(prev => prev.filter(c => c.id !== creatorId));
   };
 
-  // Initialize bookings state from localStorage or mockBookings
-  const [bookings, setBookings] = useState<Booking[]>(() => {
-    const saved = localStorage.getItem('aura_bookings');
-    if (saved) {
-      try {
-        return JSON.parse(saved);
-      } catch (e) {
-        console.error("Failed to parse bookings from localStorage:", e);
-      }
-    }
-    return mockBookings;
-  });
-
-  // Save bookings to localStorage whenever they change
-  useEffect(() => {
-    localStorage.setItem('aura_bookings', JSON.stringify(bookings));
-  }, [bookings]);
+  const [bookings, setBookings] = useState<Booking[]>(mockBookings);
 
   // Handler to add a new booking
   const handleBookingSubmit = (newBooking: Booking) => {
     setBookings(prev => [newBooking, ...prev]);
+    void persist({ action: 'save_booking', booking: newBooking });
     setPreselectedBookingId(newBooking.id);
   };
 
@@ -144,6 +116,8 @@ function App() {
       }
       return b;
     }));
+    const updatedBooking = bookings.find((booking) => booking.id === bookingId);
+    if (updatedBooking) void persist({ action: 'save_booking', booking: { ...updatedBooking, status, notes } });
   };
 
   // Handler to add a chat message
@@ -165,6 +139,7 @@ function App() {
       }
       return b;
     }));
+    void persist({ action: 'save_message', message: { id: `msg-${Date.now()}`, bookingId, sender, text } });
   };
 
   // Handler to delete a booking record (e.g. for reset/cleanup)
@@ -178,10 +153,7 @@ function App() {
       setBookings(mockBookings);
       setCreatorsList(creators);
       setUserProfile(null);
-      localStorage.removeItem('aura_bookings');
-      localStorage.removeItem('aura_creators');
-      localStorage.removeItem('aura_fan_profile');
-      alert("All system data reset successfully!");
+      alert("Local app state reset. Database records remain available for admin review.");
     }
   };
 

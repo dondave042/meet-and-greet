@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { FanProfile } from '../types';
 import { 
   User, MapPin, Calendar, Upload, Check, ShieldCheck, 
@@ -29,35 +29,7 @@ export default function FanProfileView({ userProfile, onSaveProfile, onDeletePro
   const [city, setCity] = useState('');
   const [profilePic, setProfilePic] = useState('');
 
-  // Local storage of registered users list for login simulation
-  const [registeredUsers, setRegisteredUsers] = useState<FanProfile[]>(() => {
-    const saved = localStorage.getItem('aura_registered_users');
-    if (saved) {
-      try {
-        return JSON.parse(saved);
-      } catch (e) {
-        console.error("Failed to parse registered users:", e);
-      }
-    }
-    // Pre-registered mock user
-    return [
-      {
-        email: 'fan@aura.vip',
-        password: 'password123',
-        name: 'Marcus Miller',
-        age: 29,
-        country: 'United States',
-        state: 'California',
-        city: 'San Jose',
-        profilePicture: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=200&auto=format&fit=crop'
-      }
-    ];
-  });
-
-  // Save registered users list to localStorage
-  useEffect(() => {
-    localStorage.setItem('aura_registered_users', JSON.stringify(registeredUsers));
-  }, [registeredUsers]);
+  const [registeredUsers, setRegisteredUsers] = useState<FanProfile[]>([]);
 
   // Handle Profile Picture Upload (converting to Base64)
   const handlePicUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
