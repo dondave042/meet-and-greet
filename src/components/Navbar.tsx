@@ -29,7 +29,7 @@ export default function Navbar({ activeTab, setActiveTab, userProfile, onLogout,
           {/* Logo */}
           <div className="flex items-center cursor-pointer" onClick={() => setActiveTab('home')}>
             <div className="relative mr-3.5 bg-zinc-950 border-2 border-amber-500 p-1 rounded-2xl shadow-xl shadow-amber-500/20 transition-transform duration-300 hover:scale-105">
-              <img src="/logo.jpeg" alt="Charlotte Prestige Management Logo" className="h-12 w-auto max-w-[140px] object-contain rounded-xl" />
+              <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_8266%20%287%29-DSWghiBw8cImTAkHrwAQTlLUuewMuD.jpg" alt="Charlotte Prestige Management rose emblem logo" className="h-12 w-12 object-cover rounded-xl" />
               <div className="absolute -top-1.5 -right-1.5 bg-amber-500 text-black text-[9px] font-black px-1.5 py-0.5 rounded-full shadow-md animate-pulse flex items-center gap-0.5 border border-white/20">
                 18<span className="text-[7px]">+</span>
               </div>
