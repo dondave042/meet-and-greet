@@ -411,7 +411,14 @@ export default function Home({ creators, setActiveTab, setPreselectedCreatorId, 
       </div>
 
       {/* Creator Testimonial Section */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center bg-gradient-to-r from-amber-500/5 to-rose-500/5 border border-zinc-900 p-8 rounded-2xl">
+      <div className="relative grid grid-cols-1 md:grid-cols-[189px_1fr] gap-8 items-center bg-gradient-to-r from-amber-500/5 to-rose-500/5 border border-zinc-900 p-8 rounded-2xl overflow-hidden">
+        <img
+          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/adminpic-ZGLKmcsemGfSXiDCJG52dYJCiKyQix.jpg"
+          alt="Charlotte Prestige creator endorsement portrait"
+          className="relative z-10 w-full h-[391px] object-cover opacity-60 rounded-xl text-[10px]"
+          style={{ backgroundColor: 'transparent', backgroundImage: 'linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgba(255, 255, 255, 0.1) 100%)' }}
+        />
+        <div className="absolute inset-0 h-[225px] w-[189px] rounded-2xl bg-gradient-to-t from-zinc-950 via-transparent to-transparent pointer-events-none" />
         <div className="space-y-4">
           <div className="inline-flex items-center gap-1 bg-amber-500/10 text-amber-500 text-[10px] font-bold px-2.5 py-1 rounded-md uppercase">
             <Star className="h-3 w-3 fill-amber-500" />
@@ -422,21 +429,8 @@ export default function Home({ creators, setActiveTab, setPreselectedCreatorId, 
             "Before Charlotte Prestige, meeting fans at conventions or arranging business dinners was stressful and felt unsafe. The ID vetting and background check system weeds out bad actors immediately. The security escorts and escrow protection give me total peace of mind so I can focus on building genuine connections."
           </p>
           <div>
-            <span className="text-xs font-bold text-white block">Amara Vance</span>
+            <span className="text-base font-bold text-white block">Daddy&apos;s pet</span>
             <span className="text-[10px] text-zinc-500">Premium Content Creator & Multi-Award Winner</span>
-          </div>
-        </div>
-
-        <div className="relative aspect-video rounded-xl overflow-hidden border border-zinc-800 bg-zinc-950 flex items-center justify-center">
-          <img
-            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/adminpic-ZGLKmcsemGfSXiDCJG52dYJCiKyQix.jpg"
-            alt="Charlotte Prestige creator endorsement portrait"
-            className="w-full h-full object-cover opacity-60"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-transparent to-transparent" />
-          <div className="absolute bottom-4 left-4 flex items-center gap-2 bg-black/80 backdrop-blur-md border border-zinc-800 px-3 py-1.5 rounded-lg text-[10px] font-bold text-emerald-400">
-            <ShieldCheck className="h-4 w-4 fill-emerald-400 text-zinc-950" />
-            Charlotte Prestige Safety Certified Profile
           </div>
         </div>
       </div>
