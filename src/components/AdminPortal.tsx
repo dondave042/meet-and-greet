@@ -33,7 +33,10 @@ export default function AdminPortal({ creators, onAddCreator, onUpdateCreator, o
   const [galleryCategory, setGalleryCategory] = useState('');
   const [galleryType, setGalleryType] = useState<'image' | 'video'>('image');
   const [galleryUrl, setGalleryUrl] = useState('');
+  const [galleryFileName, setGalleryFileName] = useState('');
   const [galleryIsAdult, setGalleryIsAdult] = useState(true);
+  const [isUploadingMedia, setIsUploadingMedia] = useState(false);
+  const [uploadError, setUploadError] = useState('');
 
   // Handle Profile Image Upload (simulated)
   const handleProfileImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -47,15 +50,33 @@ export default function AdminPortal({ creators, onAddCreator, onUpdateCreator, o
     }
   };
 
-  // Handle Gallery Media Upload (simulated)
-  const handleGalleryMediaUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+  // Upload gallery media to Vercel Blob and retain the public URL for the homepage gallery.
+  const handleGalleryMediaUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setGalleryUrl(reader.result as string);
-      };
-      reader.readAsDataURL(file);
+    if (!file) return;
+
+    setIsUploadingMedia(true);
+    setUploadError('');
+    setGalleryUrl('');
+    setGalleryFileName(file.name);
+
+    try {
+      const response = await fetch('/api/upload', {
+        method: 'POST',
+        headers: {
+          'Content-Type': file.type || 'application/octet-stream',
+          'X-File-Name': file.name,
+        },
+        body: file,
+      });
+      const result = await response.json();
+      if (!response.ok || !result.url) throw new Error(result.error || 'Upload failed');
+      setGalleryUrl(result.url);
+    } catch (error) {
+      setGalleryFileName('');
+      setUploadError(error instanceof Error ? error.message : 'Upload failed. Please try again.');
+    } finally {
+      setIsUploadingMedia(false);
     }
   };
 
@@ -153,7 +174,9 @@ export default function AdminPortal({ creators, onAddCreator, onUpdateCreator, o
     setGalleryTitle('');
     setGalleryCategory('');
     setGalleryUrl('');
+    setGalleryFileName('');
     setGalleryIsAdult(true);
+    setUploadError('');
     alert("Media uploaded to gallery successfully!");
   };
 
@@ -364,27 +387,35 @@ export default function AdminPortal({ creators, onAddCreator, onUpdateCreator, o
                     <div className="relative border border-dashed border-zinc-800 hover:border-red-500/30 rounded-lg p-4 text-center cursor-pointer transition">
                       <input 
                         type="file" 
-                        accept={galleryType === 'image' ? 'image/*' : 'video/*'}
+                        accept="*/*"
                         onChange={handleGalleryMediaUpload}
-                        className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+                        disabled={isUploadingMedia}
+                        className="absolute inset-0 w-full h-full opacity-0 cursor-pointer disabled:cursor-wait"
                       />
-                      {galleryUrl ? (
+                      {isUploadingMedia ? (
+                        <div className="flex items-center justify-center gap-2 text-xs text-amber-400 font-bold">
+                          <Upload className="h-4 w-4 animate-pulse" />
+                          Uploading {galleryFileName}...
+                        </div>
+                      ) : galleryUrl ? (
                         <div className="flex items-center justify-center gap-2">
                           <Check className="h-4 w-4 text-emerald-500" />
-                          <span className="text-xs text-emerald-400 font-bold">Media Loaded Successfully!</span>
+                          <span className="text-xs text-emerald-400 font-bold">{galleryFileName} uploaded</span>
                         </div>
                       ) : (
                         <div className="flex items-center justify-center gap-1.5 text-xs text-zinc-400">
                           <Upload className="h-4 w-4" />
-                          <span>Select {galleryType === 'image' ? 'Photo' : 'Video'} File</span>
+                          <span>Select any image or video format</span>
                         </div>
                       )}
                     </div>
+                    {uploadError && <p className="mt-2 text-[10px] text-red-400">{uploadError}</p>}
                   </div>
 
                   <button
                     type="submit"
-                    className="w-full bg-red-600 hover:bg-red-700 text-white font-bold text-xs py-2.5 rounded-lg transition"
+                    disabled={isUploadingMedia || !galleryUrl}
+                    className="w-full bg-red-600 hover:bg-red-700 disabled:opacity-50 disabled:cursor-not-allowed text-white font-bold text-xs py-2.5 rounded-lg transition"
                   >
                     Upload & Add to Gallery
                   </button>
