@@ -428,13 +428,10 @@ export default function Home({ creators, setActiveTab, setPreselectedCreatorId, 
         </div>
 
         <div className="relative aspect-video rounded-xl overflow-hidden border border-zinc-800 bg-zinc-950 flex items-center justify-center">
-          <img 
-            src="/images/creator1.png" 
-            alt="Amara Vance" 
+          <img
+            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/adminpic-ZGLKmcsemGfSXiDCJG52dYJCiKyQix.jpg"
+            alt="Charlotte Prestige creator endorsement portrait"
             className="w-full h-full object-cover opacity-60"
-            onError={(e) => {
-              (e.target as HTMLImageElement).src = `https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=1000&auto=format&fit=crop`;
-            }}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-transparent to-transparent" />
           <div className="absolute bottom-4 left-4 flex items-center gap-2 bg-black/80 backdrop-blur-md border border-zinc-800 px-3 py-1.5 rounded-lg text-[10px] font-bold text-emerald-400">
