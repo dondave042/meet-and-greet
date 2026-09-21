@@ -412,13 +412,15 @@ export default function Home({ creators, setActiveTab, setPreselectedCreatorId, 
 
       {/* Creator Testimonial Section */}
       <div className="relative grid grid-cols-1 md:grid-cols-[189px_1fr] gap-8 items-center bg-gradient-to-r from-amber-500/5 to-rose-500/5 border border-zinc-900 p-8 rounded-2xl overflow-hidden">
-        <img
-          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/adminpic-ZGLKmcsemGfSXiDCJG52dYJCiKyQix.jpg"
-          alt="Charlotte Prestige creator endorsement portrait"
-          className="relative z-10 w-full h-[391px] object-cover opacity-60 rounded-xl text-[10px]"
-          style={{ backgroundColor: 'transparent', backgroundImage: 'linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgba(255, 255, 255, 0.1) 100%)' }}
-        />
-        <div className="absolute inset-0 h-[225px] w-[189px] rounded-2xl bg-gradient-to-t from-zinc-950 via-transparent to-transparent pointer-events-none" />
+        <div className="relative z-10 w-full h-[391px] md:w-[189px] rounded-xl overflow-hidden">
+          <img
+            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/adminpic-ZGLKmcsemGfSXiDCJG52dYJCiKyQix.jpg"
+            alt="Charlotte Prestige creator endorsement portrait"
+            className="w-full h-full object-cover opacity-60 rounded-xl text-[10px]"
+            style={{ backgroundColor: 'transparent', backgroundImage: 'linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgba(255, 255, 255, 0.1) 100%)' }}
+          />
+          <div className="absolute inset-0 h-[225px] w-full rounded-2xl bg-gradient-to-t from-zinc-950 via-transparent to-transparent pointer-events-none" />
+        </div>
         <div className="space-y-4">
           <div className="inline-flex items-center gap-1 bg-amber-500/10 text-amber-500 text-[10px] font-bold px-2.5 py-1 rounded-md uppercase">
             <Star className="h-3 w-3 fill-amber-500" />
