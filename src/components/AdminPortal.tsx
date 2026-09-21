@@ -34,6 +34,7 @@ export default function AdminPortal({ creators, onAddCreator, onUpdateCreator, o
   const [galleryType, setGalleryType] = useState<'image' | 'video'>('image');
   const [galleryUrl, setGalleryUrl] = useState('');
   const [galleryFileName, setGalleryFileName] = useState('');
+  const [uploadedGalleryMedia, setUploadedGalleryMedia] = useState<Array<{ url: string; name: string; type: 'image' | 'video' }>>([]);
   const [galleryIsAdult, setGalleryIsAdult] = useState(true);
   const [isUploadingMedia, setIsUploadingMedia] = useState(false);
   const [uploadError, setUploadError] = useState('');
@@ -52,31 +53,37 @@ export default function AdminPortal({ creators, onAddCreator, onUpdateCreator, o
 
   // Upload gallery media to Vercel Blob and retain the public URL for the homepage gallery.
   const handleGalleryMediaUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (!file) return;
+    const files = Array.from(e.target.files ?? []);
+    if (!files.length) return;
 
     setIsUploadingMedia(true);
     setUploadError('');
-    setGalleryUrl('');
-    setGalleryFileName(file.name);
+    setGalleryFileName(`${files.length} file${files.length === 1 ? '' : 's'} selected`);
 
     try {
-      const response = await fetch('/api/upload', {
-        method: 'POST',
-        headers: {
-          'Content-Type': file.type || 'application/octet-stream',
-          'X-File-Name': file.name,
-        },
-        body: file,
-      });
-      const result = await response.json();
-      if (!response.ok || !result.url) throw new Error(result.error || 'Upload failed');
-      setGalleryUrl(result.url);
+      const uploaded = await Promise.all(files.map(async (file) => {
+        const response = await fetch('/api/upload', {
+          method: 'POST',
+          headers: {
+            'Content-Type': file.type || 'application/octet-stream',
+            'X-File-Name': file.name,
+          },
+          body: file,
+        });
+        const result = await response.json();
+        if (!response.ok || !result.url) throw new Error(result.error || `Failed to upload ${file.name}`);
+        return { url: result.url, name: file.name, type: file.type.startsWith('video/') ? 'video' as const : 'image' as const };
+      }));
+      setUploadedGalleryMedia(uploaded);
+      setGalleryUrl(uploaded[0].url);
     } catch (error) {
+      setUploadedGalleryMedia([]);
+      setGalleryUrl('');
       setGalleryFileName('');
       setUploadError(error instanceof Error ? error.message : 'Upload failed. Please try again.');
     } finally {
       setIsUploadingMedia(false);
+      e.target.value = '';
     }
   };
 
@@ -148,23 +155,23 @@ export default function AdminPortal({ creators, onAddCreator, onUpdateCreator, o
   // Gallery actions
   const handleAddGalleryItem = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!selectedCreatorForGallery || !galleryTitle || !galleryCategory || !galleryUrl) {
-      alert("Please fill in all gallery fields and select a file.");
+    if (!selectedCreatorForGallery || !galleryTitle || !galleryCategory || !uploadedGalleryMedia.length) {
+      alert("Please fill in all gallery fields and select at least one file.");
       return;
     }
 
-    const newItem = {
-      id: `gal-${Date.now()}`,
-      type: galleryType,
-      url: galleryUrl,
-      title: galleryTitle,
+    const newItems = uploadedGalleryMedia.map((media, index) => ({
+      id: `gal-${Date.now()}-${index}`,
+      type: media.type,
+      url: media.url,
+      title: uploadedGalleryMedia.length === 1 ? galleryTitle : `${galleryTitle} ${index + 1}`,
       category: galleryCategory,
       isAdult: galleryIsAdult
-    };
+    }));
 
     const updatedCreator = {
       ...selectedCreatorForGallery,
-      gallery: [...selectedCreatorForGallery.gallery, newItem]
+      gallery: [...selectedCreatorForGallery.gallery, ...newItems]
     };
 
     onUpdateCreator(updatedCreator);
@@ -175,6 +182,7 @@ export default function AdminPortal({ creators, onAddCreator, onUpdateCreator, o
     setGalleryCategory('');
     setGalleryUrl('');
     setGalleryFileName('');
+    setUploadedGalleryMedia([]);
     setGalleryIsAdult(true);
     setUploadError('');
     alert("Media uploaded to gallery successfully!");
@@ -408,7 +416,8 @@ export default function AdminPortal({ creators, onAddCreator, onUpdateCreator, o
                     <div className="relative border border-dashed border-zinc-800 hover:border-red-500/30 rounded-lg p-4 text-center cursor-pointer transition">
                       <input 
                         type="file" 
-                        accept="*/*"
+                        accept="image/*,video/*"
+                        multiple
                         onChange={handleGalleryMediaUpload}
                         disabled={isUploadingMedia}
                         className="absolute inset-0 w-full h-full opacity-0 cursor-pointer disabled:cursor-wait"
@@ -421,12 +430,12 @@ export default function AdminPortal({ creators, onAddCreator, onUpdateCreator, o
                       ) : galleryUrl ? (
                         <div className="flex items-center justify-center gap-2">
                           <Check className="h-4 w-4 text-emerald-500" />
-                          <span className="text-xs text-emerald-400 font-bold">{galleryFileName} uploaded</span>
+                          <span className="text-xs text-emerald-400 font-bold">{galleryFileName} uploaded and ready</span>
                         </div>
                       ) : (
                         <div className="flex items-center justify-center gap-1.5 text-xs text-zinc-400">
                           <Upload className="h-4 w-4" />
-                          <span>Select any image or video format</span>
+                          <span>Select multiple images or videos</span>
                         </div>
                       )}
                     </div>
