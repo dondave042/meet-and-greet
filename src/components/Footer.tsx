@@ -56,8 +56,8 @@ export default function Footer({ setActiveTab, userRole, setUserRole }: FooterPr
           {/* Brand Column */}
           <div className="md:col-span-2 space-y-5">
             <div className="flex items-center cursor-pointer" onClick={() => setActiveTab('home')}>
-              <div className="relative mr-3 bg-zinc-950 border border-amber-500 p-1 rounded-lg shadow-lg shadow-amber-500/10">
-                <img src="/logo.jpeg" alt="Charlotte Prestige Management Logo" className="h-10 w-auto max-w-[120px] object-contain rounded" />
+              <div className="relative mr-3 bg-white border border-zinc-200 p-1.5 rounded-lg shadow-lg shadow-black/10">
+                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot_2026-09-11_8.34.04_PM.png_20260911211458-O4cWtnxeT0QFTcnm7rePHjOvijmh1k.jpeg" alt="XFANS logo" className="h-9 w-auto max-w-[130px] object-contain rounded" />
               </div>
               <div>
                 <span className="text-2xl font-black tracking-tight text-white font-sans uppercase">
