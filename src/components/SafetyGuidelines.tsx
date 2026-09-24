@@ -48,7 +48,7 @@ export default function SafetyGuidelines() {
     },
     {
       q: 'Can I book a meeting in a private residence or hotel room?',
-      a: 'No. To ensure absolute safety, Charlotte Prestige Management strictly prohibits bookings in private residences or hotel rooms. Permitted locations include pre-approved convention halls, public upscale restaurants (with private dining rooms), hotel lobbies, public cafes, or commercial fitness/event spaces.'
+      a: 'No. To ensure absolute safety, Xfans Management strictly prohibits bookings in private residences or hotel rooms. Permitted locations include pre-approved convention halls, public upscale restaurants (with private dining rooms), hotel lobbies, public cafes, or commercial fitness/event spaces.'
     },
     {
       q: 'What happens if a booking is cancelled?',
@@ -62,11 +62,11 @@ export default function SafetyGuidelines() {
       <div className="text-center max-w-2xl mx-auto space-y-3">
         <div className="inline-flex items-center gap-1.5 bg-red-500/10 border border-red-500/20 px-3 py-1 rounded-full text-xs font-bold text-red-500">
           <Shield className="h-3.5 w-3.5" />
-          Charlotte Prestige Trust & Safety Protocol
+          Xfans Trust & Safety Protocol
         </div>
         <h2 className="text-3xl font-serif font-black text-white tracking-wide">Creator Safety & Code of Conduct</h2>
         <p className="text-sm text-zinc-400 leading-relaxed">
-          At Charlotte Prestige Management, we maintain an uncompromising commitment to the physical safety, legal protection, and privacy of our creators and fans. Please read our core safety guidelines before booking.
+          At Xfans Management, we maintain an uncompromising commitment to the physical safety, legal protection, and privacy of our creators and fans. Please read our core safety guidelines before booking.
         </p>
       </div>
 

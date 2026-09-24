@@ -36,7 +36,7 @@ export default function Navbar({ activeTab, setActiveTab, userProfile, onLogout,
             </div>
             <div className="hidden sm:block text-left">
               <span className="text-xl md:text-2xl font-black tracking-tight text-white font-sans uppercase block leading-none">
-                Charlotte Prestige
+                Xfans
               </span>
               <span className="text-[9px] font-black tracking-[0.2em] text-white block mt-1.5 uppercase">
                 Management

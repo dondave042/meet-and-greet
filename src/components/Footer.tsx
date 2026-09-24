@@ -61,7 +61,7 @@ export default function Footer({ setActiveTab, userRole, setUserRole }: FooterPr
               </div>
               <div>
                 <span className="text-2xl font-black tracking-tight text-white font-sans uppercase">
-                  Charlotte Prestige
+                  Xfans
                 </span>
                 <span className="text-[9px] font-black tracking-[0.2em] text-red-500 block -mt-0.5 uppercase">
                   Management
@@ -70,7 +70,7 @@ export default function Footer({ setActiveTab, userRole, setUserRole }: FooterPr
             </div>
             
             <p className="text-xs text-zinc-500 leading-relaxed max-w-sm">
-              Charlotte Prestige Management is a secure, premium booking agency and safety protocol platform facilitating verified meetups between fans and content creators. We provide absolute privacy, secure escrow, and professional physical security details.
+              Xfans Management is a secure, premium booking agency and safety protocol platform facilitating verified meetups between fans and content creators. We provide absolute privacy, secure escrow, and professional physical security details.
             </p>
 
             {/* Direct Contact Info & Support Section */}
@@ -157,10 +157,10 @@ export default function Footer({ setActiveTab, userRole, setUserRole }: FooterPr
               </li>
               <li>
                 <span className="text-zinc-500 block">Payment Escrow:</span>
-                <span className="text-white font-semibold">Charlotte Prestige Trust</span>
+                <span className="text-white font-semibold">Xfans Trust</span>
               </li>
               <li className="text-[10px] text-zinc-500 leading-relaxed pt-2">
-                All creators on Charlotte Prestige operate as independent contractors. Charlotte Prestige coordinates security, identity vetting, and escrow services.
+                All creators on Xfans operate as independent contractors. Xfans coordinates security, identity vetting, and escrow services.
               </li>
             </ul>
           </div>
@@ -170,7 +170,7 @@ export default function Footer({ setActiveTab, userRole, setUserRole }: FooterPr
         {/* Bottom Bar */}
         <div className="border-t border-zinc-900 mt-12 pt-6 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-zinc-500">
           <div className="flex flex-wrap items-center gap-4">
-            <span>&copy; {new Date().getFullYear()} Charlotte Prestige Management. All rights reserved.</span>
+            <span>&copy; {new Date().getFullYear()} Xfans Management. All rights reserved.</span>
             
             {/* The Dedicated Admin/Portal Button Icon in the Footer! */}
             <button

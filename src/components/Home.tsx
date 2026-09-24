@@ -190,7 +190,7 @@ export default function Home({ creators, setActiveTab, setPreselectedCreatorId, 
 
           {/* Subtitle */}
           <p className="text-sm md:text-base text-zinc-400 max-w-2xl mx-auto leading-relaxed">
-            Charlotte Prestige Management provides an ultra-secure, encrypted booking platform for high-profile adult film stars and content creators to meet their top supporters. Featuring mandatory 18+ ID check, full background screening, escrow protection, and physical security.
+            Xfans Management provides an ultra-secure, encrypted booking platform for high-profile adult film stars and content creators to meet their top supporters. Featuring mandatory 18+ ID check, full background screening, escrow protection, and physical security.
           </p>
 
           {/* Hero CTAs */}
@@ -236,13 +236,13 @@ export default function Home({ creators, setActiveTab, setPreselectedCreatorId, 
         </div>
       </div>
 
-      {/* NEW SECTION: Charlotte Prestige Live Teasers & Short Clips (4 Rows, 2 Columns of Mini Boxes) */}
+      {/* NEW SECTION: Xfans Live Teasers & Short Clips (4 Rows, 2 Columns of Mini Boxes) */}
       <div className="space-y-6">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div className="min-w-0">
             <h2 className="text-xl sm:text-2xl font-serif font-black text-white flex items-start gap-2 break-words">
               <Video className="h-5 w-5 text-red-600 animate-pulse" />
-              Charlotte Prestige Live Teasers &amp; Short Clips
+              Xfans Live Teasers &amp; Short Clips
             </h2>
             <p className="text-xs text-zinc-400">
               Exclusive short clips and loops uploaded by creator managements. Blur active for public compliance.
@@ -415,7 +415,7 @@ export default function Home({ creators, setActiveTab, setPreselectedCreatorId, 
         <div className="relative z-10 w-[190px] h-[189px] mt-3 md:mt-3 rounded-lg overflow-hidden">
           <img
             src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/adminpic-ZGLKmcsemGfSXiDCJG52dYJCiKyQix.jpg"
-            alt="Charlotte Prestige creator endorsement portrait"
+            alt="Xfans creator endorsement portrait"
             className="w-full h-full object-fill opacity-90 rounded-lg text-[10px] mb-0 md:mb-[100px]"
             style={{ backgroundColor: 'rgba(243, 241, 239, 0.5)' }}
           />
@@ -426,9 +426,9 @@ export default function Home({ creators, setActiveTab, setPreselectedCreatorId, 
             <Star className="h-3 w-3 fill-red-500" />
             Creator Endorsement
           </div>
-          <h3 className="text-xl sm:text-2xl font-serif font-black text-white mb-6 md:mb-9 break-words">"Charlotte Prestige completely changed how I interact with my fans."</h3>
+          <h3 className="text-xl sm:text-2xl font-serif font-black text-white mb-6 md:mb-9 break-words">"Xfans completely changed how I interact with my fans."</h3>
           <p className="text-xs text-zinc-400 leading-relaxed">
-            "Before Charlotte Prestige, meeting fans at conventions or arranging business dinners was stressful and felt unsafe. The ID vetting and background check system weeds out bad actors immediately. The security escorts and escrow protection give me total peace of mind so I can focus on building genuine connections."
+            "Before Xfans, meeting fans at conventions or arranging business dinners was stressful and felt unsafe. The ID vetting and background check system weeds out bad actors immediately. The security escorts and escrow protection give me total peace of mind so I can focus on building genuine connections."
           </p>
           <div>
             <span className="text-base font-bold text-white block w-auto mr-0 pr-0 md:w-[150px] md:mr-44 md:pr-9">Daddy&apos;s pet</span>

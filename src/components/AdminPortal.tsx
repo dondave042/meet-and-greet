@@ -226,7 +226,7 @@ export default function AdminPortal({ creators, onAddCreator, onUpdateCreator, o
               }
               setSelectedCreatorForGallery(targetCreator);
               setGalleryType('video');
-              setGalleryCategory('Charlotte Prestige Live Teasers & Short Clips');
+              setGalleryCategory('Xfans Live Teasers & Short Clips');
               setGalleryTitle('');
               setGalleryUrl('');
               setGalleryFileName('');

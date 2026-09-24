@@ -96,7 +96,7 @@ function App() {
           } else if (status === 'declined') {
             systemText = `Security Notice: Booking DECLINED. Escrow deposit released. Your profile has been cleared from active files.`;
           } else if (status === 'under_review') {
-            systemText = `Security Notice: ID validated successfully. Charlotte Prestige Security detail has initiated background clearance checks.`;
+            systemText = `Security Notice: ID validated successfully. Xfans Security detail has initiated background clearance checks.`;
           }
           
           systemMessages.push({
