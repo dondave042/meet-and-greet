@@ -30,7 +30,7 @@ export default function Navbar({ activeTab, setActiveTab, userProfile, onLogout,
           <div className="flex items-center cursor-pointer" onClick={() => setActiveTab('home')}>
             <div className="relative mr-3.5 bg-white border border-zinc-200 p-1.5 rounded-xl shadow-xl shadow-black/20 transition-transform duration-300 hover:scale-105">
               <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot_2026-09-11_8.34.04_PM.png_20260911211458-O4cWtnxeT0QFTcnm7rePHjOvijmh1k.jpeg" alt="XFANS logo" className="h-10 w-auto max-w-[150px] object-contain rounded-lg" />
-              <div className="absolute -top-1.5 -right-1.5 bg-amber-500 text-black text-[9px] font-black px-1.5 py-0.5 rounded-full shadow-md animate-pulse flex items-center gap-0.5 border border-white/20">
+              <div className="absolute -top-1.5 -right-1.5 bg-red-500 text-black text-[9px] font-black px-1.5 py-0.5 rounded-full shadow-md animate-pulse flex items-center gap-0.5 border border-white/20">
                 18<span className="text-[7px]">+</span>
               </div>
             </div>
@@ -52,7 +52,7 @@ export default function Navbar({ activeTab, setActiveTab, userProfile, onLogout,
                 onClick={() => setActiveTab(item.id)}
                 className={`px-4 py-2 rounded-lg text-xs font-bold transition-all duration-300 ${
                   activeTab === item.id
-                    ? 'text-amber-500 bg-amber-500/10 border border-amber-500/20'
+                    ? 'text-red-500 bg-red-500/10 border border-red-500/20'
                     : 'text-zinc-400 hover:text-white hover:bg-zinc-900/50'
                 }`}
               >
@@ -70,7 +70,7 @@ export default function Navbar({ activeTab, setActiveTab, userProfile, onLogout,
                   <img 
                     src={userProfile.profilePicture} 
                     alt={userProfile.name} 
-                    className="h-8 w-8 rounded-full object-cover border border-amber-500"
+                    className="h-8 w-8 rounded-full object-cover border border-red-500"
                     onError={(e) => {
                       (e.target as HTMLImageElement).src = `https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=200&auto=format&fit=crop`;
                     }}
@@ -81,10 +81,10 @@ export default function Navbar({ activeTab, setActiveTab, userProfile, onLogout,
                 </div>
                 <button
                   onClick={onLogout}
-                  className="p-1.5 hover:bg-zinc-800 rounded-lg text-zinc-400 hover:text-amber-500 transition cursor-pointer"
+                  className="p-1.5 hover:bg-zinc-800 rounded-lg text-zinc-400 hover:text-red-500 transition cursor-pointer"
                   title="Log Out"
                 >
-                  <LogOut className="h-4 w-4 text-amber-500" />
+                  <LogOut className="h-4 w-4 text-red-500" />
                 </button>
               </div>
             ) : (
@@ -97,7 +97,7 @@ export default function Navbar({ activeTab, setActiveTab, userProfile, onLogout,
                   }}
                   className="px-4 py-2 rounded-xl text-xs font-bold text-zinc-300 hover:text-white hover:bg-zinc-900 transition flex items-center gap-1 cursor-pointer"
                 >
-                  <LogIn className="h-3.5 w-3.5 text-amber-500" />
+                  <LogIn className="h-3.5 w-3.5 text-red-500" />
                   Log In
                 </button>
                 <button
@@ -105,7 +105,7 @@ export default function Navbar({ activeTab, setActiveTab, userProfile, onLogout,
                     setAuthMode('signup');
                     setActiveTab('profile');
                   }}
-                  className="px-4 py-2 rounded-xl text-xs font-bold bg-amber-500 hover:bg-amber-400 text-black transition flex items-center gap-1 shadow-lg cursor-pointer"
+                  className="px-4 py-2 rounded-xl text-xs font-bold bg-red-500 hover:bg-red-400 text-black transition flex items-center gap-1 shadow-lg cursor-pointer"
                 >
                   <UserPlus className="h-3.5 w-3.5 text-black" />
                   Sign Up
@@ -121,7 +121,7 @@ export default function Navbar({ activeTab, setActiveTab, userProfile, onLogout,
                 <img 
                   src={userProfile.profilePicture} 
                   alt={userProfile.name} 
-                  className="h-8 w-8 rounded-full object-cover border border-amber-500 cursor-pointer"
+                  className="h-8 w-8 rounded-full object-cover border border-red-500 cursor-pointer"
                   onClick={() => setActiveTab('profile')}
                   onError={(e) => {
                     (e.target as HTMLImageElement).src = `https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=200&auto=format&fit=crop`;
@@ -129,10 +129,10 @@ export default function Navbar({ activeTab, setActiveTab, userProfile, onLogout,
                 />
                 <button
                   onClick={onLogout}
-                  className="p-1 hover:bg-zinc-800 rounded text-zinc-400 hover:text-amber-500 transition cursor-pointer"
+                  className="p-1 hover:bg-zinc-800 rounded text-zinc-400 hover:text-red-500 transition cursor-pointer"
                   title="Log Out"
                 >
-                  <LogOut className="h-3.5 w-3.5 text-amber-500" />
+                  <LogOut className="h-3.5 w-3.5 text-red-500" />
                 </button>
               </div>
             ) : (
@@ -151,7 +151,7 @@ export default function Navbar({ activeTab, setActiveTab, userProfile, onLogout,
                     setAuthMode('signup');
                     setActiveTab('profile');
                   }}
-                  className="px-2.5 py-1.5 rounded-lg text-[10px] font-extrabold bg-amber-500 text-black cursor-pointer shadow-md"
+                  className="px-2.5 py-1.5 rounded-lg text-[10px] font-extrabold bg-red-500 text-black cursor-pointer shadow-md"
                 >
                   Sign Up
                 </button>
@@ -180,7 +180,7 @@ export default function Navbar({ activeTab, setActiveTab, userProfile, onLogout,
                 }}
                 className={`block w-full text-left px-4 py-3 rounded-lg text-base font-medium transition-all ${
                   activeTab === item.id
-                    ? 'text-amber-500 bg-amber-500/10 border-l-4 border-amber-500'
+                    ? 'text-red-500 bg-red-500/10 border-l-4 border-red-500'
                     : 'text-zinc-400 hover:text-white hover:bg-zinc-900'
                 }`}
               >
@@ -196,7 +196,7 @@ export default function Navbar({ activeTab, setActiveTab, userProfile, onLogout,
                     <img 
                       src={userProfile.profilePicture} 
                       alt={userProfile.name} 
-                      className="h-8 w-8 rounded-full object-cover border border-amber-500"
+                      className="h-8 w-8 rounded-full object-cover border border-red-500"
                     />
                     <span className="text-xs font-bold text-white">{userProfile.name}</span>
                   </div>
@@ -205,9 +205,9 @@ export default function Navbar({ activeTab, setActiveTab, userProfile, onLogout,
                       onLogout();
                       setIsOpen(false);
                     }}
-                    className="text-xs font-bold text-amber-500 flex items-center gap-1"
+                    className="text-xs font-bold text-red-500 flex items-center gap-1"
                   >
-                    <LogOut className="h-3.5 w-3.5 text-amber-500" />
+                    <LogOut className="h-3.5 w-3.5 text-red-500" />
                     Log Out
                   </button>
                 </div>
@@ -221,7 +221,7 @@ export default function Navbar({ activeTab, setActiveTab, userProfile, onLogout,
                     }}
                     className="py-2 text-center text-xs font-bold rounded-lg bg-zinc-900 text-zinc-300 border border-zinc-800 flex items-center justify-center gap-1"
                   >
-                    <LogIn className="h-3.5 w-3.5 text-amber-500" />
+                    <LogIn className="h-3.5 w-3.5 text-red-500" />
                     Log In
                   </button>
                   <button
@@ -230,7 +230,7 @@ export default function Navbar({ activeTab, setActiveTab, userProfile, onLogout,
                       setActiveTab('profile');
                       setIsOpen(false);
                     }}
-                    className="py-2 text-center text-xs font-bold rounded-lg bg-amber-500 text-black flex items-center justify-center gap-1"
+                    className="py-2 text-center text-xs font-bold rounded-lg bg-red-500 text-black flex items-center justify-center gap-1"
                   >
                     <UserPlus className="h-3.5 w-3.5 text-black" />
                     Sign Up

@@ -63,7 +63,7 @@ export default function Footer({ setActiveTab, userRole, setUserRole }: FooterPr
                 <span className="text-2xl font-black tracking-tight text-white font-sans uppercase">
                   Charlotte Prestige
                 </span>
-                <span className="text-[9px] font-black tracking-[0.2em] text-amber-500 block -mt-0.5 uppercase">
+                <span className="text-[9px] font-black tracking-[0.2em] text-red-500 block -mt-0.5 uppercase">
                   Management
                 </span>
               </div>
@@ -74,17 +74,17 @@ export default function Footer({ setActiveTab, userRole, setUserRole }: FooterPr
             </p>
 
             {/* Direct Contact Info & Support Section */}
-            <div className="bg-zinc-900/40 p-4 rounded-xl border border-amber-500/10 space-y-3 max-w-sm">
-              <span className="text-[10px] font-extrabold tracking-wider text-amber-500 uppercase block flex items-center gap-1.5">
+            <div className="bg-zinc-900/40 p-4 rounded-xl border border-red-500/10 space-y-3 max-w-sm">
+              <span className="text-[10px] font-extrabold tracking-wider text-red-500 uppercase block flex items-center gap-1.5">
                 <ShieldCheck className="h-3.5 w-3.5" />
                 Direct Agency Dispatch
               </span>
               <div className="space-y-2 text-xs">
                 <a 
                   href="tel:+13474358842" 
-                  className="flex items-center gap-2 text-zinc-300 hover:text-amber-500 transition group"
+                  className="flex items-center gap-2 text-zinc-300 hover:text-red-500 transition group"
                 >
-                  <Phone className="h-4 w-4 text-amber-500 shrink-0 group-hover:scale-110 transition" />
+                  <Phone className="h-4 w-4 text-red-500 shrink-0 group-hover:scale-110 transition" />
                   <div>
                     <span className="text-[10px] text-zinc-500 block leading-none font-bold">SMS / Call Support</span>
                     <span className="font-mono font-bold text-white group-hover:underline">+1 (347) 435-8842</span>
@@ -94,9 +94,9 @@ export default function Footer({ setActiveTab, userRole, setUserRole }: FooterPr
                   href="https://t.me/lanatheblondie" 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  className="flex items-center gap-2 text-zinc-300 hover:text-amber-500 transition group"
+                  className="flex items-center gap-2 text-zinc-300 hover:text-red-500 transition group"
                 >
-                  <MessageSquare className="h-4 w-4 text-amber-500 shrink-0 group-hover:scale-110 transition" />
+                  <MessageSquare className="h-4 w-4 text-red-500 shrink-0 group-hover:scale-110 transition" />
                   <div>
                     <span className="text-[10px] text-zinc-500 block leading-none font-bold">Secure Telegram Dispatch</span>
                     <span className="text-sm font-bold text-white group-hover:underline">@silviadelgadogarcia</span>
@@ -106,7 +106,7 @@ export default function Footer({ setActiveTab, userRole, setUserRole }: FooterPr
             </div>
 
             <div className="flex items-center gap-2 text-[10px] text-zinc-500 font-bold bg-zinc-900 py-1.5 px-3 rounded-lg inline-block border border-zinc-805">
-              <FileLock2 className="h-3.5 w-3.5 text-amber-500" />
+              <FileLock2 className="h-3.5 w-3.5 text-red-500" />
               Fully compliant with 18 U.S.C. § 2257 Record-Keeping Requirements.
             </div>
           </div>
@@ -116,27 +116,27 @@ export default function Footer({ setActiveTab, userRole, setUserRole }: FooterPr
             <h4 className="text-xs font-bold text-white uppercase tracking-wider mb-4">Platform</h4>
             <ul className="space-y-2.5 text-xs text-zinc-400">
               <li>
-                <button onClick={() => setActiveTab('home')} className="hover:text-amber-500 transition text-left cursor-pointer">
+                <button onClick={() => setActiveTab('home')} className="hover:text-red-500 transition text-left cursor-pointer">
                   Home / Explore
                 </button>
               </li>
               <li>
-                <button onClick={() => setActiveTab('creators')} className="hover:text-amber-500 transition text-left cursor-pointer">
+                <button onClick={() => setActiveTab('creators')} className="hover:text-red-500 transition text-left cursor-pointer">
                   Creator Roster
                 </button>
               </li>
               <li>
-                <button onClick={() => setActiveTab('book')} className="hover:text-amber-500 transition text-left cursor-pointer">
+                <button onClick={() => setActiveTab('book')} className="hover:text-red-500 transition text-left cursor-pointer">
                   Book a Meeting
                 </button>
               </li>
               <li>
-                <button onClick={() => setActiveTab('tracker')} className="hover:text-amber-500 transition text-left cursor-pointer">
+                <button onClick={() => setActiveTab('tracker')} className="hover:text-red-500 transition text-left cursor-pointer">
                   Status Tracker
                 </button>
               </li>
               <li>
-                <button onClick={() => setActiveTab('safety')} className="hover:text-amber-500 transition text-left cursor-pointer">
+                <button onClick={() => setActiveTab('safety')} className="hover:text-red-500 transition text-left cursor-pointer">
                   Safety & Conduct
                 </button>
               </li>
@@ -147,8 +147,8 @@ export default function Footer({ setActiveTab, userRole, setUserRole }: FooterPr
           <div>
             <h4 className="text-xs font-bold text-white uppercase tracking-wider mb-4">Safety & Compliance</h4>
             <ul className="space-y-2.5 text-xs text-zinc-400">
-              <li className="flex items-center gap-1.5 text-amber-500 font-bold">
-                <span className="h-1.5 w-1.5 rounded-full bg-amber-500" />
+              <li className="flex items-center gap-1.5 text-red-500 font-bold">
+                <span className="h-1.5 w-1.5 rounded-full bg-red-500" />
                 Strictly 18+ Only
               </li>
               <li>
@@ -175,17 +175,17 @@ export default function Footer({ setActiveTab, userRole, setUserRole }: FooterPr
             {/* The Dedicated Admin/Portal Button Icon in the Footer! */}
             <button
               onClick={() => setShowAdminPanel(!showAdminPanel)}
-              className="flex items-center gap-1.5 bg-zinc-900 border border-zinc-800 hover:border-amber-500/30 px-3 py-1.5 rounded-xl text-[10px] font-extrabold uppercase tracking-wider text-amber-500 transition shadow-md cursor-pointer"
+              className="flex items-center gap-1.5 bg-zinc-900 border border-zinc-800 hover:border-red-500/30 px-3 py-1.5 rounded-xl text-[10px] font-extrabold uppercase tracking-wider text-red-500 transition shadow-md cursor-pointer"
               title="Open Secret Portal Controls"
             >
-              <ShieldAlert className="h-3.5 w-3.5 text-amber-500" />
+              <ShieldAlert className="h-3.5 w-3.5 text-red-500" />
               Portal Control
             </button>
           </div>
 
           <div className="flex items-center gap-1.5 text-[10px]">
             Designed with
-            <Heart className="h-3 w-3 text-amber-500 fill-amber-500" />
+            <Heart className="h-3 w-3 text-red-500 fill-red-500" />
             for creator safety & peace of mind.
           </div>
         </div>
@@ -194,14 +194,14 @@ export default function Footer({ setActiveTab, userRole, setUserRole }: FooterPr
       {/* POPUP OVERLAY: SECRET ADMIN PORTAL CONTROLS WITH LOGIN GATE */}
       {showAdminPanel && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4">
-          <div className="bg-zinc-950 border border-amber-500/30 rounded-2xl max-w-sm w-full p-6 text-center space-y-5 relative overflow-hidden shadow-2xl">
+          <div className="bg-zinc-950 border border-red-500/30 rounded-2xl max-w-sm w-full p-6 text-center space-y-5 relative overflow-hidden shadow-2xl">
             {/* Hologram Gradient Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-b from-amber-500/5 via-transparent to-transparent pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-b from-red-500/5 via-transparent to-transparent pointer-events-none" />
 
             {/* Header */}
             <div className="flex justify-between items-center border-b border-zinc-900 pb-3">
-              <div className="flex items-center gap-1.5 text-amber-500">
-                <Key className="h-4 w-4 text-amber-500" />
+              <div className="flex items-center gap-1.5 text-red-500">
+                <Key className="h-4 w-4 text-red-500" />
                 <span className="text-xs font-extrabold tracking-wider uppercase">System Controller</span>
               </div>
               <button 
@@ -265,7 +265,7 @@ export default function Footer({ setActiveTab, userRole, setUserRole }: FooterPr
 
                 <button
                   type="submit"
-                  className="w-full bg-amber-500 hover:bg-amber-400 text-black font-extrabold text-xs py-2.5 rounded-xl transition shadow flex items-center justify-center gap-1.5 cursor-pointer mt-2"
+                  className="w-full bg-red-500 hover:bg-red-400 text-black font-extrabold text-xs py-2.5 rounded-xl transition shadow flex items-center justify-center gap-1.5 cursor-pointer mt-2"
                 >
                   <Lock className="h-3.5 w-3.5 text-black" />
                   Unlock Portal Control
@@ -277,7 +277,7 @@ export default function Footer({ setActiveTab, userRole, setUserRole }: FooterPr
                 <div className="space-y-1">
                   <h3 className="text-base font-serif font-black text-white">System Controller Unlocked</h3>
                   <p className="text-[10px] text-zinc-400 leading-relaxed">
-                    Access granted for <strong className="text-amber-500">techethanedward@gmail.com</strong>. Choose your role to simulate and inspect:
+                    Access granted for <strong className="text-red-500">techethanedward@gmail.com</strong>. Choose your role to simulate and inspect:
                   </p>
                 </div>
 
@@ -287,7 +287,7 @@ export default function Footer({ setActiveTab, userRole, setUserRole }: FooterPr
                     onClick={() => handleRoleChange('fan')}
                     className={`w-full py-3 rounded-xl text-xs font-bold transition flex items-center justify-center gap-2 border ${
                       userRole === 'fan'
-                        ? 'bg-amber-500 text-black border-amber-500'
+                        ? 'bg-red-500 text-black border-red-500'
                         : 'bg-zinc-900 text-zinc-300 border-zinc-800 hover:bg-zinc-800'
                     }`}
                   >
@@ -299,7 +299,7 @@ export default function Footer({ setActiveTab, userRole, setUserRole }: FooterPr
                     onClick={() => handleRoleChange('admin')}
                     className={`w-full py-3 rounded-xl text-xs font-bold transition flex items-center justify-center gap-2 border ${
                       userRole === 'admin'
-                        ? 'bg-amber-500 text-black border-amber-500'
+                        ? 'bg-red-500 text-black border-red-500'
                         : 'bg-zinc-900 text-zinc-300 border-zinc-800 hover:bg-zinc-800'
                     }`}
                   >
@@ -311,7 +311,7 @@ export default function Footer({ setActiveTab, userRole, setUserRole }: FooterPr
                     onClick={() => handleRoleChange('creator')}
                     className={`w-full py-3 rounded-xl text-xs font-bold transition flex items-center justify-center gap-2 border ${
                       userRole === 'creator'
-                        ? 'bg-amber-500 text-black border-amber-500'
+                        ? 'bg-red-500 text-black border-red-500'
                         : 'bg-zinc-900 text-zinc-300 border-zinc-800 hover:bg-zinc-800'
                     }`}
                   >
