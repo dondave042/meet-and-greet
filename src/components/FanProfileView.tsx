@@ -237,7 +237,7 @@ export default function FanProfileView({ userProfile, onSaveProfile, onDeletePro
               
               {/* Fan Account */}
               <div className="text-[10px] font-mono space-y-0.5 bg-zinc-900 p-2 rounded border border-zinc-850">
-                <span className="text-[8px] font-bold text-amber-500 block uppercase">Fan Portal</span>
+                <span className="text-[8px] font-bold text-red-500 block uppercase">Fan Portal</span>
                 <div className="flex justify-between">
                   <span className="text-zinc-500">Email:</span>
                   <span className="text-white font-bold">fan@aura.vip</span>
@@ -250,7 +250,7 @@ export default function FanProfileView({ userProfile, onSaveProfile, onDeletePro
 
               {/* Admin Account */}
               <div className="text-[10px] font-mono space-y-0.5 bg-zinc-900 p-2 rounded border border-zinc-850">
-                <span className="text-[8px] font-bold text-amber-500 block uppercase">Admin Portal Control</span>
+                <span className="text-[8px] font-bold text-red-500 block uppercase">Admin Portal Control</span>
                 <div className="flex justify-between">
                   <span className="text-zinc-500">Email:</span>
                   <span className="text-white font-bold">techethanedward@gmail.com</span>

@@ -253,7 +253,7 @@ export default function BookingForm({ creators, preselectedCreatorId, onBookingS
                 <div className="flex flex-col items-center">
                   <div className={`h-10 w-10 rounded-full flex items-center justify-center font-bold text-sm transition-all duration-300 ${
                     step === num
-                      ? 'bg-amber-500 text-black shadow-lg shadow-amber-500/20 scale-110 ring-4 ring-amber-500/10'
+                      ? 'bg-red-500 text-black shadow-lg shadow-red-500/20 scale-110 ring-4 ring-red-500/10'
                       : step > num
                       ? 'bg-emerald-500 text-white'
                       : 'bg-zinc-900 border border-zinc-800 text-zinc-500'
@@ -261,7 +261,7 @@ export default function BookingForm({ creators, preselectedCreatorId, onBookingS
                     {step > num ? '✓' : `0${num}`}
                   </div>
                   <span className={`text-[10px] font-bold uppercase tracking-wider mt-2 transition-colors ${
-                    step === num ? 'text-amber-500' : 'text-zinc-500'
+                    step === num ? 'text-red-500' : 'text-zinc-500'
                   }`}>
                     {num === 1 ? 'Target' : num === 2 ? 'Profile' : num === 3 ? 'Details' : 'Verify'}
                   </span>
@@ -309,7 +309,7 @@ export default function BookingForm({ creators, preselectedCreatorId, onBookingS
                       onClick={() => setCreatorId(c.id)}
                       className={`cursor-pointer rounded-xl border p-4 flex items-center gap-3 transition-all ${
                         creatorId === c.id
-                          ? 'border-amber-500 bg-amber-500/5 shadow-lg shadow-amber-500/5'
+                          ? 'border-red-500 bg-red-500/5 shadow-lg shadow-red-500/5'
                           : 'border-zinc-800 bg-zinc-950/40 hover:border-zinc-700'
                       }`}
                     >
@@ -323,7 +323,7 @@ export default function BookingForm({ creators, preselectedCreatorId, onBookingS
                       />
                       <div>
                         <h4 className="font-bold text-sm text-white">{c.name}</h4>
-                        <p className="text-[10px] text-amber-500 font-semibold">Min. ${c.rates.hourly}/hr</p>
+                        <p className="text-[10px] text-red-500 font-semibold">Min. ${c.rates.hourly}/hr</p>
                       </div>
                     </div>
                   ))}
@@ -343,7 +343,7 @@ export default function BookingForm({ creators, preselectedCreatorId, onBookingS
                       onClick={() => setMeetingType(type.id as Booking['meetingType'])}
                       className={`cursor-pointer rounded-xl border p-4 text-left transition-all ${
                         meetingType === type.id
-                          ? 'border-amber-500 bg-amber-500/5'
+                          ? 'border-red-500 bg-red-500/5'
                           : 'border-zinc-800 bg-zinc-950/20 hover:border-zinc-700'
                       }`}
                     >
@@ -353,7 +353,7 @@ export default function BookingForm({ creators, preselectedCreatorId, onBookingS
                           type="radio"
                           checked={meetingType === type.id}
                           onChange={() => {}}
-                          className="accent-amber-500 h-4 w-4"
+                          className="accent-red-500 h-4 w-4"
                         />
                       </div>
                       <p className="text-xs text-zinc-400 leading-relaxed">{type.desc}</p>
@@ -363,10 +363,10 @@ export default function BookingForm({ creators, preselectedCreatorId, onBookingS
               </div>
 
               {/* Safety Alert */}
-              <div className="bg-amber-500/5 border border-amber-500/20 rounded-xl p-4 flex gap-3 items-start">
-                <AlertTriangle className="h-5 w-5 text-amber-500 shrink-0 mt-0.5" />
+              <div className="bg-red-500/5 border border-red-500/20 rounded-xl p-4 flex gap-3 items-start">
+                <AlertTriangle className="h-5 w-5 text-red-500 shrink-0 mt-0.5" />
                 <div>
-                  <h4 className="text-xs font-bold text-amber-400 uppercase tracking-wider">Aura Safe-Meeting Protocol</h4>
+                  <h4 className="text-xs font-bold text-red-400 uppercase tracking-wider">Aura Safe-Meeting Protocol</h4>
                   <p className="text-xs text-zinc-400 leading-relaxed mt-1">
                     All meetups are subject to pre-screening and approval by our management team. Private bookings require physical security present in an adjacent room or nearby area. Absolutely no illegal activities or boundary violations are tolerated.
                   </p>
@@ -378,7 +378,7 @@ export default function BookingForm({ creators, preselectedCreatorId, onBookingS
                 <button
                   type="button"
                   onClick={handleNext}
-                  className="bg-gradient-to-r from-amber-500 to-rose-500 text-black font-bold text-sm py-3 px-6 rounded-xl hover:opacity-90 transition flex items-center gap-1.5 shadow-lg shadow-amber-500/10"
+                  className="bg-gradient-to-r from-red-500 to-rose-500 text-black font-bold text-sm py-3 px-6 rounded-xl hover:opacity-90 transition flex items-center gap-1.5 shadow-lg shadow-red-500/10"
                 >
                   Continue to Profile
                   <ChevronRight className="h-4 w-4 stroke-[2.5]" />
@@ -410,7 +410,7 @@ export default function BookingForm({ creators, preselectedCreatorId, onBookingS
                       placeholder="e.g. John Doe"
                       value={fanName}
                       onChange={(e) => setFanName(e.target.value)}
-                      className={`w-full bg-zinc-950/60 border rounded-xl py-3 pl-10 pr-4 text-sm text-white focus:outline-none focus:border-amber-500 transition ${
+                      className={`w-full bg-zinc-950/60 border rounded-xl py-3 pl-10 pr-4 text-sm text-white focus:outline-none focus:border-red-500 transition ${
                         errors.fanName ? 'border-rose-500' : 'border-zinc-800'
                       }`}
                     />
@@ -427,7 +427,7 @@ export default function BookingForm({ creators, preselectedCreatorId, onBookingS
                     placeholder="Min. 18"
                     value={fanAge}
                     onChange={(e) => setFanAge(e.target.value === '' ? '' : Number(e.target.value))}
-                    className={`w-full bg-zinc-950/60 border rounded-xl py-3 px-4 text-sm text-white focus:outline-none focus:border-amber-500 transition ${
+                    className={`w-full bg-zinc-950/60 border rounded-xl py-3 px-4 text-sm text-white focus:outline-none focus:border-red-500 transition ${
                       errors.fanAge ? 'border-rose-500' : 'border-zinc-800'
                     }`}
                   />
@@ -446,7 +446,7 @@ export default function BookingForm({ creators, preselectedCreatorId, onBookingS
                     placeholder="e.g. United States"
                     value={fanCountry}
                     onChange={(e) => setFanCountry(e.target.value)}
-                    className={`w-full bg-zinc-950/60 border rounded-xl py-3 px-4 text-sm text-white focus:outline-none focus:border-amber-500 transition ${
+                    className={`w-full bg-zinc-950/60 border rounded-xl py-3 px-4 text-sm text-white focus:outline-none focus:border-red-500 transition ${
                       errors.fanCountry ? 'border-rose-500' : 'border-zinc-800'
                     }`}
                   />
@@ -462,7 +462,7 @@ export default function BookingForm({ creators, preselectedCreatorId, onBookingS
                     placeholder="e.g. California"
                     value={fanState}
                     onChange={(e) => setFanState(e.target.value)}
-                    className={`w-full bg-zinc-950/60 border rounded-xl py-3 px-4 text-sm text-white focus:outline-none focus:border-amber-500 transition ${
+                    className={`w-full bg-zinc-950/60 border rounded-xl py-3 px-4 text-sm text-white focus:outline-none focus:border-red-500 transition ${
                       errors.fanState ? 'border-rose-500' : 'border-zinc-800'
                     }`}
                   />
@@ -478,7 +478,7 @@ export default function BookingForm({ creators, preselectedCreatorId, onBookingS
                     placeholder="e.g. Los Angeles"
                     value={fanCity}
                     onChange={(e) => setFanCity(e.target.value)}
-                    className={`w-full bg-zinc-950/60 border rounded-xl py-3 px-4 text-sm text-white focus:outline-none focus:border-amber-500 transition ${
+                    className={`w-full bg-zinc-950/60 border rounded-xl py-3 px-4 text-sm text-white focus:outline-none focus:border-red-500 transition ${
                       errors.fanCity ? 'border-rose-500' : 'border-zinc-800'
                     }`}
                   />
@@ -497,7 +497,7 @@ export default function BookingForm({ creators, preselectedCreatorId, onBookingS
                     placeholder="your.email@domain.com"
                     value={fanEmail}
                     onChange={(e) => setFanEmail(e.target.value)}
-                    className={`w-full bg-zinc-950/60 border rounded-xl py-3 px-4 text-sm text-white focus:outline-none focus:border-amber-500 transition ${
+                    className={`w-full bg-zinc-950/60 border rounded-xl py-3 px-4 text-sm text-white focus:outline-none focus:border-red-500 transition ${
                       errors.fanEmail ? 'border-rose-500' : 'border-zinc-800'
                     }`}
                   />
@@ -513,7 +513,7 @@ export default function BookingForm({ creators, preselectedCreatorId, onBookingS
                     placeholder="e.g. +1 (555) 019-2834"
                     value={fanPhone}
                     onChange={(e) => setFanPhone(e.target.value)}
-                    className={`w-full bg-zinc-950/60 border rounded-xl py-3 px-4 text-sm text-white focus:outline-none focus:border-amber-500 transition ${
+                    className={`w-full bg-zinc-950/60 border rounded-xl py-3 px-4 text-sm text-white focus:outline-none focus:border-red-500 transition ${
                       errors.fanPhone ? 'border-rose-500' : 'border-zinc-800'
                     }`}
                   />
@@ -534,7 +534,7 @@ export default function BookingForm({ creators, preselectedCreatorId, onBookingS
                       placeholder="@username"
                       value={twitter}
                       onChange={(e) => setTwitter(e.target.value)}
-                      className="w-full bg-zinc-950/40 border border-zinc-800 rounded-lg py-2.5 px-3 text-xs text-white focus:outline-none focus:border-amber-500 transition"
+                      className="w-full bg-zinc-950/40 border border-zinc-800 rounded-lg py-2.5 px-3 text-xs text-white focus:outline-none focus:border-red-500 transition"
                     />
                   </div>
                   <div>
@@ -544,7 +544,7 @@ export default function BookingForm({ creators, preselectedCreatorId, onBookingS
                       placeholder="@username"
                       value={instagram}
                       onChange={(e) => setInstagram(e.target.value)}
-                      className="w-full bg-zinc-950/40 border border-zinc-800 rounded-lg py-2.5 px-3 text-xs text-white focus:outline-none focus:border-amber-500 transition"
+                      className="w-full bg-zinc-950/40 border border-zinc-800 rounded-lg py-2.5 px-3 text-xs text-white focus:outline-none focus:border-red-500 transition"
                     />
                   </div>
                   <div>
@@ -554,7 +554,7 @@ export default function BookingForm({ creators, preselectedCreatorId, onBookingS
                       placeholder="@username"
                       value={onlyfans}
                       onChange={(e) => setOnlyfans(e.target.value)}
-                      className="w-full bg-zinc-950/40 border border-zinc-800 rounded-lg py-2.5 px-3 text-xs text-white focus:outline-none focus:border-amber-500 transition"
+                      className="w-full bg-zinc-950/40 border border-zinc-800 rounded-lg py-2.5 px-3 text-xs text-white focus:outline-none focus:border-red-500 transition"
                     />
                   </div>
                 </div>
@@ -573,7 +573,7 @@ export default function BookingForm({ creators, preselectedCreatorId, onBookingS
                 <button
                   type="button"
                   onClick={handleNext}
-                  className="bg-gradient-to-r from-amber-500 to-rose-500 text-black font-bold text-sm py-3 px-6 rounded-xl hover:opacity-90 transition flex items-center gap-1.5 shadow-lg shadow-amber-500/10"
+                  className="bg-gradient-to-r from-red-500 to-rose-500 text-black font-bold text-sm py-3 px-6 rounded-xl hover:opacity-90 transition flex items-center gap-1.5 shadow-lg shadow-red-500/10"
                 >
                   Continue to Details
                   <ChevronRight className="h-4 w-4 stroke-[2.5]" />
@@ -602,7 +602,7 @@ export default function BookingForm({ creators, preselectedCreatorId, onBookingS
                   placeholder="Please describe exactly why you want to meet, what you expect to talk about, your intentions, and any specific activities or gifts you have planned. High-quality details increase your chance of approval significantly."
                   value={reasonToMeet}
                   onChange={(e) => setReasonToMeet(e.target.value)}
-                  className={`w-full bg-zinc-950/60 border rounded-xl py-3 px-4 text-sm text-white focus:outline-none focus:border-amber-500 transition leading-relaxed ${
+                  className={`w-full bg-zinc-950/60 border rounded-xl py-3 px-4 text-sm text-white focus:outline-none focus:border-red-500 transition leading-relaxed ${
                     errors.reasonToMeet ? 'border-rose-500' : 'border-zinc-800'
                   }`}
                 />
@@ -623,7 +623,7 @@ export default function BookingForm({ creators, preselectedCreatorId, onBookingS
                     type="date"
                     value={date}
                     onChange={(e) => setDate(e.target.value)}
-                    className={`w-full bg-zinc-950/60 border rounded-xl py-3 px-4 text-sm text-white focus:outline-none focus:border-amber-500 transition ${
+                    className={`w-full bg-zinc-950/60 border rounded-xl py-3 px-4 text-sm text-white focus:outline-none focus:border-red-500 transition ${
                       errors.date ? 'border-rose-500' : 'border-zinc-800'
                     }`}
                   />
@@ -638,7 +638,7 @@ export default function BookingForm({ creators, preselectedCreatorId, onBookingS
                     type="time"
                     value={time}
                     onChange={(e) => setTime(e.target.value)}
-                    className={`w-full bg-zinc-950/60 border rounded-xl py-3 px-4 text-sm text-white focus:outline-none focus:border-amber-500 transition ${
+                    className={`w-full bg-zinc-950/60 border rounded-xl py-3 px-4 text-sm text-white focus:outline-none focus:border-red-500 transition ${
                       errors.time ? 'border-rose-500' : 'border-zinc-800'
                     }`}
                   />
@@ -652,7 +652,7 @@ export default function BookingForm({ creators, preselectedCreatorId, onBookingS
                   <select
                     value={duration}
                     onChange={(e) => setDuration(e.target.value)}
-                    className="w-full bg-zinc-950 border border-zinc-800 rounded-xl py-3 px-4 text-sm text-white focus:outline-none focus:border-amber-500 transition"
+                    className="w-full bg-zinc-950 border border-zinc-800 rounded-xl py-3 px-4 text-sm text-white focus:outline-none focus:border-red-500 transition"
                   >
                     <option value="1 Hour">1 Hour (Standard)</option>
                     <option value="2 Hours">2 Hours (Recommended)</option>
@@ -669,13 +669,13 @@ export default function BookingForm({ creators, preselectedCreatorId, onBookingS
                   Proposed Budget / Offer ($ USD) <span className="text-rose-500">*</span>
                 </label>
                 <div className="relative">
-                  <DollarSign className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-amber-500" />
+                  <DollarSign className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-red-500" />
                   <input
                     type="number"
                     placeholder={`Minimum $${selectedCreator.rates.hourly} for ${selectedCreator.name}`}
                     value={budget}
                     onChange={(e) => setBudget(e.target.value === '' ? '' : Number(e.target.value))}
-                    className={`w-full bg-zinc-950/60 border rounded-xl py-3 pl-10 pr-4 text-sm text-white font-bold focus:outline-none focus:border-amber-500 transition ${
+                    className={`w-full bg-zinc-950/60 border rounded-xl py-3 pl-10 pr-4 text-sm text-white font-bold focus:outline-none focus:border-red-500 transition ${
                       errors.budget ? 'border-rose-500' : 'border-zinc-800'
                     }`}
                   />
@@ -699,7 +699,7 @@ export default function BookingForm({ creators, preselectedCreatorId, onBookingS
                 <button
                   type="button"
                   onClick={handleNext}
-                  className="bg-gradient-to-r from-amber-500 to-rose-500 text-black font-bold text-sm py-3 px-6 rounded-xl hover:opacity-90 transition flex items-center gap-1.5 shadow-lg shadow-amber-500/10"
+                  className="bg-gradient-to-r from-red-500 to-rose-500 text-black font-bold text-sm py-3 px-6 rounded-xl hover:opacity-90 transition flex items-center gap-1.5 shadow-lg shadow-red-500/10"
                 >
                   Continue to Verification
                   <ChevronRight className="h-4 w-4 stroke-[2.5]" />
@@ -730,7 +730,7 @@ export default function BookingForm({ creators, preselectedCreatorId, onBookingS
                     <p className="text-[10px] text-zinc-500 mb-3">Upload a clear photo of your Passport, Driver's License, or National ID. Must show name and age clearly.</p>
                   </div>
                   
-                  <div className="relative border-2 border-dashed border-zinc-800 hover:border-amber-500/50 rounded-lg p-6 text-center cursor-pointer transition">
+                  <div className="relative border-2 border-dashed border-zinc-800 hover:border-red-500/50 rounded-lg p-6 text-center cursor-pointer transition">
                     <input
                       type="file"
                       accept="image/*"
@@ -757,10 +757,10 @@ export default function BookingForm({ creators, preselectedCreatorId, onBookingS
                 <div className="border border-zinc-800 bg-zinc-950/40 rounded-xl p-4 flex flex-col justify-between">
                   <div>
                     <span className="text-[11px] font-extrabold tracking-wider text-zinc-400 uppercase block mb-1">2. Selfie Verification</span>
-                    <p className="text-[10px] text-zinc-500 mb-3">Upload a selfie holding a handwritten note saying: <strong className="text-amber-500">"CPM VIP + [Today's Date]"</strong>.</p>
+                    <p className="text-[10px] text-zinc-500 mb-3">Upload a selfie holding a handwritten note saying: <strong className="text-red-500">"CPM VIP + [Today's Date]"</strong>.</p>
                   </div>
 
-                  <div className="relative border-2 border-dashed border-zinc-800 hover:border-amber-500/50 rounded-lg p-6 text-center cursor-pointer transition">
+                  <div className="relative border-2 border-dashed border-zinc-800 hover:border-red-500/50 rounded-lg p-6 text-center cursor-pointer transition">
                     <input
                       type="file"
                       accept="image/*"
@@ -792,10 +792,10 @@ export default function BookingForm({ creators, preselectedCreatorId, onBookingS
                     type="checkbox"
                     checked={backgroundCheckAgreed}
                     onChange={(e) => setBackgroundCheckAgreed(e.target.checked)}
-                    className="accent-amber-500 h-4 w-4 mt-0.5 rounded"
+                    className="accent-red-500 h-4 w-4 mt-0.5 rounded"
                   />
                   <div>
-                    <span className="text-xs font-bold text-white group-hover:text-amber-400 transition">
+                    <span className="text-xs font-bold text-white group-hover:text-red-400 transition">
                       I consent to a standard safety and background screening
                     </span>
                     <p className="text-[10px] text-zinc-500 leading-relaxed mt-0.5">
@@ -811,10 +811,10 @@ export default function BookingForm({ creators, preselectedCreatorId, onBookingS
                     type="checkbox"
                     checked={termsAgreed}
                     onChange={(e) => setTermsAgreed(e.target.checked)}
-                    className="accent-amber-500 h-4 w-4 mt-0.5 rounded"
+                    className="accent-red-500 h-4 w-4 mt-0.5 rounded"
                   />
                   <div>
-                    <span className="text-xs font-bold text-white group-hover:text-amber-400 transition">
+                    <span className="text-xs font-bold text-white group-hover:text-red-400 transition">
                       I agree to the Creator Safety Code of Conduct & Boundaries
                     </span>
                     <p className="text-[10px] text-zinc-500 leading-relaxed mt-0.5">
@@ -839,7 +839,7 @@ export default function BookingForm({ creators, preselectedCreatorId, onBookingS
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="bg-gradient-to-r from-amber-500 via-rose-500 to-purple-600 text-white font-bold text-sm py-3 px-8 rounded-xl hover:opacity-90 transition flex items-center gap-2 shadow-lg shadow-rose-500/10 disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="bg-gradient-to-r from-red-500 via-rose-500 to-purple-600 text-white font-bold text-sm py-3 px-8 rounded-xl hover:opacity-90 transition flex items-center gap-2 shadow-lg shadow-rose-500/10 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {isSubmitting ? (
                     <>
@@ -867,7 +867,7 @@ export default function BookingForm({ creators, preselectedCreatorId, onBookingS
               <div className="space-y-2">
                 <h2 className="text-2xl font-serif font-black text-white">Booking Request Submitted!</h2>
                 <p className="text-sm text-zinc-400 max-w-md mx-auto leading-relaxed">
-                  Your VIP meetup request with <strong className="text-amber-400">{submittedBooking.creatorName}</strong> has been successfully registered. Our security team is reviewing your documents.
+                  Your VIP meetup request with <strong className="text-red-400">{submittedBooking.creatorName}</strong> has been successfully registered. Our security team is reviewing your documents.
                 </p>
               </div>
 
@@ -875,7 +875,7 @@ export default function BookingForm({ creators, preselectedCreatorId, onBookingS
               <div className="max-w-md mx-auto bg-zinc-950/80 border border-zinc-800 rounded-2xl p-5 space-y-3">
                 <span className="text-[10px] font-extrabold tracking-widest text-zinc-500 uppercase block">YOUR SECURE BOOKING ID</span>
                 <div className="flex items-center justify-center gap-2 bg-zinc-900 border border-zinc-800 py-3 px-4 rounded-xl">
-                  <span className="text-lg font-mono font-black text-amber-400 tracking-wider">
+                  <span className="text-lg font-mono font-black text-red-400 tracking-wider">
                     {submittedBooking.id}
                   </span>
                   <button
@@ -912,7 +912,7 @@ export default function BookingForm({ creators, preselectedCreatorId, onBookingS
                 </div>
                 <div className="flex justify-between">
                   <span className="text-zinc-500">Escrow Deposit:</span>
-                  <span className="text-amber-400 font-extrabold">${submittedBooking.budget} USD</span>
+                  <span className="text-red-400 font-extrabold">${submittedBooking.budget} USD</span>
                 </div>
               </div>
 
@@ -946,7 +946,7 @@ export default function BookingForm({ creators, preselectedCreatorId, onBookingS
                 <button
                   type="button"
                   onClick={() => onNavigateToTracker(submittedBooking.id)}
-                  className="py-3 px-6 rounded-xl text-xs font-bold bg-gradient-to-r from-amber-500 to-rose-500 text-black hover:opacity-90 transition flex items-center justify-center gap-1.5 shadow-lg shadow-amber-500/15"
+                  className="py-3 px-6 rounded-xl text-xs font-bold bg-gradient-to-r from-red-500 to-rose-500 text-black hover:opacity-90 transition flex items-center justify-center gap-1.5 shadow-lg shadow-red-500/15"
                 >
                   Track Status & Chat
                   <ArrowRight className="h-4 w-4 stroke-[2.5]" />

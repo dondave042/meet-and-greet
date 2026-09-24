@@ -423,7 +423,7 @@ export default function AdminPortal({ creators, onAddCreator, onUpdateCreator, o
                         className="absolute inset-0 w-full h-full opacity-0 cursor-pointer disabled:cursor-wait"
                       />
                       {isUploadingMedia ? (
-                        <div className="flex items-center justify-center gap-2 text-xs text-amber-400 font-bold">
+                        <div className="flex items-center justify-center gap-2 text-xs text-red-400 font-bold">
                           <Upload className="h-4 w-4 animate-pulse" />
                           Uploading {galleryFileName}...
                         </div>

@@ -161,7 +161,7 @@ function App() {
   const activeCreatorId = preselectedCreatorId || (creatorsList.length > 0 ? creatorsList[0].id : '');
 
   return (
-    <div className="min-h-screen bg-zinc-950 text-zinc-100 flex flex-col selection:bg-amber-500 selection:text-black">
+    <div className="min-h-screen bg-zinc-950 text-zinc-100 flex flex-col selection:bg-red-500 selection:text-black">
       {/* Age Gate Banner */}
       <div className="bg-red-700 text-white py-2.5 px-4 text-center font-bold text-xs flex items-center justify-center gap-2 relative z-50 shadow-md">
         <Shield className="h-4 w-4 stroke-[2.5]" />

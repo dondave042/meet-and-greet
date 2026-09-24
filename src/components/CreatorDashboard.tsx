@@ -97,7 +97,7 @@ export default function CreatorDashboard({ bookings, onUpdateBookingStatus, onAd
             <img 
               src={activeCreator.image} 
               alt={activeCreator.name} 
-              className="h-16 w-16 rounded-full object-cover border-2 border-amber-500"
+              className="h-16 w-16 rounded-full object-cover border-2 border-red-500"
               onError={(e) => {
                 (e.target as HTMLImageElement).src = `https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=100&auto=format&fit=crop`;
               }}
@@ -125,7 +125,7 @@ export default function CreatorDashboard({ bookings, onUpdateBookingStatus, onAd
               const firstBooking = bookings.find(b => b.creatorId === e.target.value);
               setSelectedBookingId(firstBooking?.id || null);
             }}
-            className="bg-zinc-950 border border-zinc-800 rounded-xl py-2 px-4 text-xs text-white font-semibold focus:outline-none focus:border-amber-500 transition"
+            className="bg-zinc-950 border border-zinc-800 rounded-xl py-2 px-4 text-xs text-white font-semibold focus:outline-none focus:border-red-500 transition"
           >
             {creators.map(c => (
               <option key={c.id} value={c.id}>{c.name}</option>
@@ -135,7 +135,7 @@ export default function CreatorDashboard({ bookings, onUpdateBookingStatus, onAd
             onClick={() => setShowSettings(!showSettings)}
             className={`p-2.5 rounded-xl border transition ${
               showSettings 
-                ? 'bg-amber-500 border-amber-500 text-black font-bold' 
+                ? 'bg-red-500 border-red-500 text-black font-bold' 
                 : 'bg-zinc-950 border-zinc-800 text-zinc-400 hover:text-white'
             }`}
             title="Creator Settings"
@@ -147,7 +147,7 @@ export default function CreatorDashboard({ bookings, onUpdateBookingStatus, onAd
 
       {/* Settings Sub-Panel */}
       {showSettings && (
-        <div className="bg-zinc-900/60 p-6 rounded-2xl border border-amber-500/20 animate-in fade-in slide-in-from-top-4 duration-200 grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="bg-zinc-900/60 p-6 rounded-2xl border border-red-500/20 animate-in fade-in slide-in-from-top-4 duration-200 grid grid-cols-1 md:grid-cols-3 gap-6">
           <div>
             <h4 className="text-sm font-bold text-white mb-2">Booking Rates</h4>
             <div className="space-y-3">
@@ -185,7 +185,7 @@ export default function CreatorDashboard({ bookings, onUpdateBookingStatus, onAd
                 alert("Settings saved successfully! (Simulated)");
                 setShowSettings(false);
               }}
-              className="w-full bg-gradient-to-r from-amber-500 to-rose-500 text-black py-2.5 rounded-xl font-bold text-xs"
+              className="w-full bg-gradient-to-r from-red-500 to-rose-500 text-black py-2.5 rounded-xl font-bold text-xs"
             >
               Save Settings
             </button>
@@ -211,12 +211,12 @@ export default function CreatorDashboard({ bookings, onUpdateBookingStatus, onAd
         <div className="bg-zinc-900/40 p-5 rounded-xl border border-zinc-800/80">
           <div className="flex justify-between items-start">
             <span className="text-xs text-zinc-500 font-bold uppercase tracking-wider">Awaiting Review</span>
-            <Clock className="h-4 w-4 text-amber-500" />
+            <Clock className="h-4 w-4 text-red-500" />
           </div>
           <div className="text-2xl font-black text-white mt-1">
             {pendingCount}
           </div>
-          <p className="text-[10px] text-amber-400 mt-1">Requires security decision</p>
+          <p className="text-[10px] text-red-400 mt-1">Requires security decision</p>
         </div>
 
         {/* Approved Meetings */}
@@ -276,7 +276,7 @@ export default function CreatorDashboard({ bookings, onUpdateBookingStatus, onAd
                   placeholder="Search name, city, ID, or keywords..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full bg-zinc-950 border border-zinc-800 rounded-lg py-1.5 pl-9 pr-4 text-xs text-white focus:outline-none focus:border-amber-500"
+                  className="w-full bg-zinc-950 border border-zinc-800 rounded-lg py-1.5 pl-9 pr-4 text-xs text-white focus:outline-none focus:border-red-500"
                 />
               </div>
             </div>
@@ -297,7 +297,7 @@ export default function CreatorDashboard({ bookings, onUpdateBookingStatus, onAd
                     }}
                     className={`p-4 text-left cursor-pointer transition-all flex justify-between items-center ${
                       selectedBookingId === b.id
-                        ? 'bg-amber-500/5 border-l-4 border-amber-500'
+                        ? 'bg-red-500/5 border-l-4 border-red-500'
                         : 'hover:bg-zinc-900/45'
                     }`}
                   >
@@ -314,14 +314,14 @@ export default function CreatorDashboard({ bookings, onUpdateBookingStatus, onAd
                     </div>
 
                     <div className="text-right shrink-0 flex flex-col items-end gap-1.5">
-                      <span className="text-xs font-black text-amber-400">${b.budget}</span>
+                      <span className="text-xs font-black text-red-400">${b.budget}</span>
                       <span className={`text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full border ${
                         b.status === 'approved'
                           ? 'bg-emerald-500/10 border-emerald-500/20 text-emerald-400'
                           : b.status === 'declined'
                           ? 'bg-rose-500/10 border-rose-500/20 text-rose-400'
                           : b.status === 'under_review' || b.status === 'id_verified'
-                          ? 'bg-amber-500/10 border-amber-500/20 text-amber-400'
+                          ? 'bg-red-500/10 border-red-500/20 text-red-400'
                           : 'bg-zinc-800 border-zinc-700 text-zinc-400'
                       }`}>
                         {b.status.replace('_', ' ')}
@@ -356,7 +356,7 @@ export default function CreatorDashboard({ bookings, onUpdateBookingStatus, onAd
                     <>
                       <button
                         onClick={() => handleStatusChange(selectedBooking.id, 'under_review')}
-                        className="bg-amber-500 text-black text-xs font-bold py-2 px-3 rounded-lg hover:opacity-90 transition flex items-center gap-1"
+                        className="bg-red-500 text-black text-xs font-bold py-2 px-3 rounded-lg hover:opacity-90 transition flex items-center gap-1"
                       >
                         <UserCheck className="h-3.5 w-3.5" />
                         Verify ID
@@ -421,7 +421,7 @@ export default function CreatorDashboard({ bookings, onUpdateBookingStatus, onAd
                 
                 {/* Section: Meeting Motivation (The Core Requirement) */}
                 <div className="bg-zinc-950/40 p-5 rounded-xl border border-zinc-800/60">
-                  <span className="text-[10px] font-extrabold tracking-wider text-amber-500 uppercase block mb-2">Reason to Meet (Fan Statement)</span>
+                  <span className="text-[10px] font-extrabold tracking-wider text-red-500 uppercase block mb-2">Reason to Meet (Fan Statement)</span>
                   <p className="text-sm text-zinc-200 leading-relaxed italic whitespace-pre-line">
                     "{selectedBooking.reasonToMeet}"
                   </p>
@@ -456,15 +456,15 @@ export default function CreatorDashboard({ bookings, onUpdateBookingStatus, onAd
                     <div className="space-y-2 text-xs">
                       <div className="flex justify-between">
                         <span className="text-zinc-500">X (Twitter):</span>
-                        <span className="text-amber-400 font-bold">{selectedBooking.fanSocials.twitter || 'Not provided'}</span>
+                        <span className="text-red-400 font-bold">{selectedBooking.fanSocials.twitter || 'Not provided'}</span>
                       </div>
                       <div className="flex justify-between">
                         <span className="text-zinc-500">Instagram:</span>
-                        <span className="text-amber-400 font-bold">{selectedBooking.fanSocials.instagram || 'Not provided'}</span>
+                        <span className="text-red-400 font-bold">{selectedBooking.fanSocials.instagram || 'Not provided'}</span>
                       </div>
                       <div className="flex justify-between">
                         <span className="text-zinc-500">OnlyFans:</span>
-                        <span className="text-amber-400 font-bold">{selectedBooking.fanSocials.onlyfans || 'Not provided'}</span>
+                        <span className="text-red-400 font-bold">{selectedBooking.fanSocials.onlyfans || 'Not provided'}</span>
                       </div>
                     </div>
                   </div>
@@ -482,7 +482,7 @@ export default function CreatorDashboard({ bookings, onUpdateBookingStatus, onAd
                   </div>
                   <div>
                     <span className="text-[10px] text-zinc-500 block uppercase font-bold">Duration & Budget</span>
-                    <span className="text-xs font-bold text-amber-400 block mt-1">{selectedBooking.duration} / ${selectedBooking.budget}</span>
+                    <span className="text-xs font-bold text-red-400 block mt-1">{selectedBooking.duration} / ${selectedBooking.budget}</span>
                   </div>
                 </div>
 
@@ -534,7 +534,7 @@ export default function CreatorDashboard({ bookings, onUpdateBookingStatus, onAd
                           setEditingNotesId(selectedBooking.id);
                           setTempNotes(selectedBooking.notes);
                         }}
-                        className="text-[10px] font-bold text-amber-500 hover:underline"
+                        className="text-[10px] font-bold text-red-500 hover:underline"
                       >
                         Edit Notes
                       </button>
@@ -554,7 +554,7 @@ export default function CreatorDashboard({ bookings, onUpdateBookingStatus, onAd
                       value={tempNotes}
                       onChange={(e) => setTempNotes(e.target.value)}
                       rows={3}
-                      className="w-full bg-zinc-950 border border-zinc-800 rounded-lg p-2.5 text-xs text-white focus:outline-none focus:border-amber-500"
+                      className="w-full bg-zinc-950 border border-zinc-800 rounded-lg p-2.5 text-xs text-white focus:outline-none focus:border-red-500"
                     />
                   ) : (
                     <p className="text-xs text-zinc-400 leading-relaxed bg-zinc-950/50 p-3 rounded-lg border border-zinc-900">
@@ -567,7 +567,7 @@ export default function CreatorDashboard({ bookings, onUpdateBookingStatus, onAd
                 <div className="border border-zinc-800 bg-zinc-950/40 rounded-xl overflow-hidden">
                   <div className="bg-zinc-950/60 px-4 py-2.5 border-b border-zinc-900 flex justify-between items-center">
                     <span className="text-[10px] font-extrabold tracking-wider text-zinc-400 uppercase flex items-center gap-1.5">
-                      <MessageSquare className="h-3.5 w-3.5 text-amber-500" />
+                      <MessageSquare className="h-3.5 w-3.5 text-red-500" />
                       Booking Communication Channel
                     </span>
                     <span className="text-[9px] text-zinc-500 font-bold">Secure, Monitored</span>
@@ -588,7 +588,7 @@ export default function CreatorDashboard({ bookings, onUpdateBookingStatus, onAd
                           <div className="flex items-center gap-1.5 mb-0.5">
                             <span className={`text-[9px] font-bold uppercase tracking-wider ${
                               msg.sender === 'creator' 
-                                ? 'text-amber-400' 
+                                ? 'text-red-400' 
                                 : msg.sender === 'security' 
                                 ? 'text-rose-400' 
                                 : 'text-zinc-400'
@@ -604,7 +604,7 @@ export default function CreatorDashboard({ bookings, onUpdateBookingStatus, onAd
                               ? 'bg-zinc-800 text-zinc-200 rounded-tl-none'
                               : msg.sender === 'security'
                               ? 'bg-rose-950/30 text-rose-200 border border-rose-900/40 rounded-tr-none'
-                              : 'bg-amber-500 text-black font-medium rounded-tr-none'
+                              : 'bg-red-500 text-black font-medium rounded-tr-none'
                           }`}>
                             {msg.text}
                           </div>
@@ -630,7 +630,7 @@ export default function CreatorDashboard({ bookings, onUpdateBookingStatus, onAd
                       placeholder="Type a secure message..."
                       value={messageText}
                       onChange={(e) => setMessageText(e.target.value)}
-                      className="flex-1 bg-zinc-900 border border-zinc-800 rounded-lg px-3 py-1.5 text-xs text-white focus:outline-none focus:border-amber-500"
+                      className="flex-1 bg-zinc-900 border border-zinc-800 rounded-lg px-3 py-1.5 text-xs text-white focus:outline-none focus:border-red-500"
                     />
                     <button
                       type="submit"

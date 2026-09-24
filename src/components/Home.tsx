@@ -170,12 +170,12 @@ export default function Home({ creators, setActiveTab, setPreselectedCreatorId, 
       {/* Hero Section */}
       <div className="relative py-12 md:py-24 overflow-hidden rounded-3xl bg-gradient-to-br from-zinc-950 via-zinc-900/40 to-zinc-950 border border-zinc-900">
         {/* Glow Effects */}
-        <div className="absolute top-1/4 left-1/4 -translate-x-1/2 -translate-y-1/2 h-72 w-72 rounded-full bg-amber-500/10 blur-[100px] pointer-events-none" />
+        <div className="absolute top-1/4 left-1/4 -translate-x-1/2 -translate-y-1/2 h-72 w-72 rounded-full bg-red-500/10 blur-[100px] pointer-events-none" />
         <div className="absolute bottom-1/4 right-1/4 translate-x-1/2 translate-y-1/2 h-72 w-72 rounded-full bg-rose-500/10 blur-[100px] pointer-events-none" />
 
         <div className="max-w-4xl mx-auto px-6 text-center space-y-8 relative z-10">
           {/* Badge */}
-          <div className="inline-flex items-center gap-1.5 bg-amber-500/10 border border-amber-500/20 px-3 py-1 rounded-full text-xs font-bold text-amber-500">
+          <div className="inline-flex items-center gap-1.5 bg-red-500/10 border border-red-500/20 px-3 py-1 rounded-full text-xs font-bold text-red-500">
             <Sparkles className="h-3.5 w-3.5 animate-spin" style={{ animationDuration: '8s' }} />
             The Gold Standard in Creator-Fan Meetups
           </div>
@@ -183,7 +183,7 @@ export default function Home({ creators, setActiveTab, setPreselectedCreatorId, 
           {/* Main Title */}
           <h1 className="text-4xl md:text-6xl font-serif font-black tracking-tight text-white leading-[1.15]">
             Meet Your Favorite Creators,{' '}
-            <span className="bg-gradient-to-r from-amber-400 via-rose-500 to-purple-500 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-red-400 via-rose-500 to-purple-500 bg-clip-text text-transparent">
               Safely & Securely
             </span>
           </h1>
@@ -200,7 +200,7 @@ export default function Home({ creators, setActiveTab, setPreselectedCreatorId, 
                 setPreselectedCreatorId(creators.length > 0 ? creators[0].id : '');
                 setActiveTab('book');
               }}
-              className="bg-gradient-to-r from-amber-500 via-rose-500 to-purple-600 text-white font-bold text-sm py-3.5 px-8 rounded-xl hover:opacity-95 transition flex items-center justify-center gap-2 shadow-lg shadow-rose-500/15 cursor-pointer"
+              className="bg-gradient-to-r from-red-500 via-rose-500 to-purple-600 text-white font-bold text-sm py-3.5 px-8 rounded-xl hover:opacity-95 transition flex items-center justify-center gap-2 shadow-lg shadow-rose-500/15 cursor-pointer"
             >
               Book VIP Meetup
               <ArrowRight className="h-4 w-4 stroke-[2.5]" />
@@ -209,7 +209,7 @@ export default function Home({ creators, setActiveTab, setPreselectedCreatorId, 
               onClick={() => setActiveTab('tracker')}
               className="bg-zinc-900 hover:bg-zinc-800 text-zinc-300 font-bold text-sm py-3.5 px-8 rounded-xl border border-zinc-800 transition flex items-center justify-center gap-2 cursor-pointer"
             >
-              <Shield className="h-4 w-4 text-amber-500" />
+              <Shield className="h-4 w-4 text-red-500" />
               Track Booking Status
             </button>
           </div>
@@ -221,7 +221,7 @@ export default function Home({ creators, setActiveTab, setPreselectedCreatorId, 
               <span className="trust-badge-text">18+ ID Verified</span>
             </div>
             <div className="flex items-center justify-center gap-2 text-zinc-400">
-              <Lock className="h-4 w-4 text-amber-500" />
+              <Lock className="h-4 w-4 text-red-500" />
               <span className="trust-badge-text">Encrypted Data</span>
             </div>
             <div className="flex items-center justify-center gap-2 text-zinc-400">
@@ -399,7 +399,7 @@ export default function Home({ creators, setActiveTab, setPreselectedCreatorId, 
             const Icon = step.icon;
             return (
               <div key={idx} className="bg-zinc-950/40 border border-zinc-900 p-5 rounded-xl space-y-3">
-                <div className="p-2.5 bg-zinc-900 border border-zinc-800 text-amber-400 rounded-lg inline-block">
+                <div className="p-2.5 bg-zinc-900 border border-zinc-800 text-red-400 rounded-lg inline-block">
                   <Icon className="h-5 w-5" />
                 </div>
                 <h3 className="font-bold text-sm text-white">{step.title}</h3>
@@ -411,7 +411,7 @@ export default function Home({ creators, setActiveTab, setPreselectedCreatorId, 
       </div>
 
       {/* Creator Testimonial Section */}
-      <div className="relative grid grid-cols-1 md:grid-cols-[190px_1fr] gap-5 md:gap-8 items-center min-h-[350px] h-auto bg-gradient-to-r from-amber-500/5 to-rose-500/5 border border-zinc-900 p-4 sm:p-6 md:p-8 rounded-2xl overflow-hidden">
+      <div className="relative grid grid-cols-1 md:grid-cols-[190px_1fr] gap-5 md:gap-8 items-center min-h-[350px] h-auto bg-gradient-to-r from-red-500/5 to-rose-500/5 border border-zinc-900 p-4 sm:p-6 md:p-8 rounded-2xl overflow-hidden">
         <div className="relative z-10 w-[190px] h-[189px] mt-3 md:mt-3 rounded-lg overflow-hidden">
           <img
             src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/adminpic-ZGLKmcsemGfSXiDCJG52dYJCiKyQix.jpg"
@@ -422,8 +422,8 @@ export default function Home({ creators, setActiveTab, setPreselectedCreatorId, 
           <div className="absolute inset-0 h-[225px] w-full rounded-2xl bg-gradient-to-t from-zinc-950 via-transparent to-transparent pointer-events-none" />
         </div>
         <div className="space-y-4 mb-0 md:mb-[120px] min-w-0 break-words">
-          <div className="inline-flex items-center gap-1 bg-amber-500/10 text-amber-500 text-[10px] font-bold px-2.5 py-1 rounded-md uppercase">
-            <Star className="h-3 w-3 fill-amber-500" />
+          <div className="inline-flex items-center gap-1 bg-red-500/10 text-red-500 text-[10px] font-bold px-2.5 py-1 rounded-md uppercase">
+            <Star className="h-3 w-3 fill-red-500" />
             Creator Endorsement
           </div>
           <h3 className="text-xl sm:text-2xl font-serif font-black text-white mb-6 md:mb-9 break-words">"Charlotte Prestige completely changed how I interact with my fans."</h3>

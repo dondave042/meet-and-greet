@@ -6,9 +6,9 @@ export default function SafetyGuidelines() {
     {
       icon: Shield,
       title: 'Physical Security & Escorts',
-      color: 'text-amber-500',
-      bgColor: 'bg-amber-500/5',
-      borderColor: 'border-amber-500/10',
+      color: 'text-red-500',
+      bgColor: 'bg-red-500/5',
+      borderColor: 'border-red-500/10',
       desc: 'All private venue meetings are accompanied by professional, discreet security details who remain in close proximity. Emergency panic buttons and instant coordinates sharing are active during all bookings.'
     },
     {
@@ -60,7 +60,7 @@ export default function SafetyGuidelines() {
     <div className="space-y-12 text-left">
       {/* Hero Header */}
       <div className="text-center max-w-2xl mx-auto space-y-3">
-        <div className="inline-flex items-center gap-1.5 bg-amber-500/10 border border-amber-500/20 px-3 py-1 rounded-full text-xs font-bold text-amber-500">
+        <div className="inline-flex items-center gap-1.5 bg-red-500/10 border border-red-500/20 px-3 py-1 rounded-full text-xs font-bold text-red-500">
           <Shield className="h-3.5 w-3.5" />
           Charlotte Prestige Trust & Safety Protocol
         </div>
@@ -143,7 +143,7 @@ export default function SafetyGuidelines() {
           {faqs.map((faq, idx) => (
             <div key={idx} className="bg-zinc-950/40 p-5 rounded-xl border border-zinc-900 space-y-2">
               <h4 className="text-xs font-bold text-white flex items-center gap-2">
-                <HelpCircle className="h-4 w-4 text-amber-500 shrink-0" />
+                <HelpCircle className="h-4 w-4 text-red-500 shrink-0" />
                 {faq.q}
               </h4>
               <p className="text-xs text-zinc-400 leading-relaxed pl-6">

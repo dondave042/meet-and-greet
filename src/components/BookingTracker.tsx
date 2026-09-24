@@ -92,7 +92,7 @@ export default function BookingTracker({ bookings, preselectedBookingId, onAddMe
         <div className="max-w-md mx-auto space-y-2">
           <h2 className="text-xl font-serif font-black text-white">Track Your Booking Status</h2>
           <p className="text-xs text-zinc-400">
-            Enter your secure Booking ID (e.g. <span className="font-mono text-amber-500">CPM-8392-VIP</span>) to view real-time safety vetting progress and communicate with security.
+            Enter your secure Booking ID (e.g. <span className="font-mono text-red-500">CPM-8392-VIP</span>) to view real-time safety vetting progress and communicate with security.
           </p>
         </div>
 
@@ -104,12 +104,12 @@ export default function BookingTracker({ bookings, preselectedBookingId, onAddMe
               placeholder="Enter Booking ID (CPM-XXXX-VIP)"
               value={searchId}
               onChange={(e) => setSearchId(e.target.value)}
-              className="w-full bg-zinc-950 border border-zinc-800 rounded-xl py-3 pl-10 pr-4 text-sm font-mono text-white focus:outline-none focus:border-amber-500 transition uppercase"
+              className="w-full bg-zinc-950 border border-zinc-800 rounded-xl py-3 pl-10 pr-4 text-sm font-mono text-white focus:outline-none focus:border-red-500 transition uppercase"
             />
           </div>
           <button
             type="submit"
-            className="bg-gradient-to-r from-amber-500 to-rose-500 text-black font-bold text-xs px-5 rounded-xl hover:opacity-90 transition"
+            className="bg-gradient-to-r from-red-500 to-rose-500 text-black font-bold text-xs px-5 rounded-xl hover:opacity-90 transition"
           >
             Lookup
           </button>
@@ -137,7 +137,7 @@ export default function BookingTracker({ bookings, preselectedBookingId, onAddMe
                   <div>
                     <h3 className="font-serif font-bold text-white">Booking with {activeBooking.creatorName}</h3>
                     <div className="flex items-center gap-1.5 mt-0.5">
-                      <span className="text-xs font-mono text-amber-500 font-bold">{activeBooking.id}</span>
+                      <span className="text-xs font-mono text-red-500 font-bold">{activeBooking.id}</span>
                       <button
                         onClick={handleCopyId}
                         className="text-zinc-500 hover:text-white transition"
@@ -151,7 +151,7 @@ export default function BookingTracker({ bookings, preselectedBookingId, onAddMe
 
                 <div className="text-right">
                   <span className="text-[10px] text-zinc-500 block uppercase font-bold">Escrow Budget</span>
-                  <span className="text-sm font-black text-amber-400">${activeBooking.budget}</span>
+                  <span className="text-sm font-black text-red-400">${activeBooking.budget}</span>
                 </div>
               </div>
 
@@ -184,10 +184,10 @@ export default function BookingTracker({ bookings, preselectedBookingId, onAddMe
                   </div>
                 </div>
               ) : (
-                <div className="bg-amber-500/5 border border-amber-500/15 rounded-xl p-4 flex gap-3 items-start text-left">
-                  <Shield className="h-5 w-5 text-amber-500 shrink-0 mt-0.5" />
+                <div className="bg-red-500/5 border border-red-500/15 rounded-xl p-4 flex gap-3 items-start text-left">
+                  <Shield className="h-5 w-5 text-red-500 shrink-0 mt-0.5" />
                   <div>
-                    <h4 className="text-xs font-bold text-amber-400 uppercase tracking-wider">Vetting Process In Progress</h4>
+                    <h4 className="text-xs font-bold text-red-400 uppercase tracking-wider">Vetting Process In Progress</h4>
                     <p className="text-xs text-zinc-400 leading-relaxed mt-1">
                       Our secure system is currently verifying your identity and conducting a standard public safety background check. The creator will review your proposal as soon as background check returns green.
                     </p>
@@ -212,7 +212,7 @@ export default function BookingTracker({ bookings, preselectedBookingId, onAddMe
                             isCompleted 
                               ? 'bg-emerald-500 border-emerald-500 text-white' 
                               : isCurrent
-                              ? 'bg-amber-500 border-amber-500 text-black animate-pulse'
+                              ? 'bg-red-500 border-red-500 text-black animate-pulse'
                               : 'bg-zinc-950 border-zinc-850 text-zinc-600'
                           }`}>
                             {isCompleted ? (
@@ -224,7 +224,7 @@ export default function BookingTracker({ bookings, preselectedBookingId, onAddMe
 
                           {/* Step Text */}
                           <div>
-                            <h4 className={`text-xs font-bold ${isCompleted ? 'text-white' : isCurrent ? 'text-amber-400' : 'text-zinc-500'}`}>
+                            <h4 className={`text-xs font-bold ${isCompleted ? 'text-white' : isCurrent ? 'text-red-400' : 'text-zinc-500'}`}>
                               {step.label}
                             </h4>
                             <p className="text-[10px] text-zinc-400 mt-0.5 leading-relaxed">{step.desc}</p>
@@ -286,7 +286,7 @@ export default function BookingTracker({ bookings, preselectedBookingId, onAddMe
             <div className="bg-zinc-900/40 rounded-2xl border border-zinc-800/80 overflow-hidden flex flex-col h-full">
               <div className="bg-zinc-950/40 px-4 py-3 border-b border-zinc-900 flex items-center justify-between">
                 <div className="flex items-center gap-2">
-                  <MessageSquare className="h-4 w-4 text-amber-500" />
+                  <MessageSquare className="h-4 w-4 text-red-500" />
                   <span className="text-xs font-bold text-white uppercase tracking-wider">Vetting Chat</span>
                 </div>
                 <div className="flex items-center gap-1.5 bg-rose-500/10 border border-rose-500/20 px-2 py-0.5 rounded text-[9px] font-bold text-rose-400">
@@ -312,7 +312,7 @@ export default function BookingTracker({ bookings, preselectedBookingId, onAddMe
                       <div className="flex items-center gap-1.5 mb-0.5">
                         <span className={`text-[9px] font-bold uppercase tracking-wider ${
                           msg.sender === 'creator' 
-                            ? 'text-amber-400' 
+                            ? 'text-red-400' 
                             : msg.sender === 'security' 
                             ? 'text-rose-400' 
                             : 'text-zinc-500'
@@ -325,7 +325,7 @@ export default function BookingTracker({ bookings, preselectedBookingId, onAddMe
                       </div>
                       <div className={`p-2.5 rounded-xl leading-relaxed ${
                         msg.sender === 'fan'
-                          ? 'bg-amber-500 text-black font-medium rounded-tr-none'
+                          ? 'bg-red-500 text-black font-medium rounded-tr-none'
                           : msg.sender === 'security'
                           ? 'bg-rose-950/30 text-rose-200 border border-rose-900/40 rounded-tl-none'
                           : 'bg-zinc-800 text-zinc-200 rounded-tl-none'
@@ -345,7 +345,7 @@ export default function BookingTracker({ bookings, preselectedBookingId, onAddMe
                   disabled={activeBooking.status === 'declined'}
                   value={chatMessage}
                   onChange={(e) => setChatMessage(e.target.value)}
-                  className="flex-1 bg-zinc-950 border border-zinc-850 rounded-xl px-3.5 py-2 text-xs text-white focus:outline-none focus:border-amber-500 disabled:opacity-50"
+                  className="flex-1 bg-zinc-950 border border-zinc-850 rounded-xl px-3.5 py-2 text-xs text-white focus:outline-none focus:border-red-500 disabled:opacity-50"
                 />
                 <button
                   type="submit"
@@ -371,22 +371,22 @@ export default function BookingTracker({ bookings, preselectedBookingId, onAddMe
       {/* POPUP: Verified Meet Pass Modal */}
       {showPass && activeBooking && activeBooking.status === 'approved' && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4">
-          <div className="bg-zinc-950 border border-amber-500/30 rounded-2xl max-w-sm w-full p-6 text-center space-y-6 relative overflow-hidden shadow-2xl shadow-amber-500/5 animate-in zoom-in-95 duration-200">
+          <div className="bg-zinc-950 border border-red-500/30 rounded-2xl max-w-sm w-full p-6 text-center space-y-6 relative overflow-hidden shadow-2xl shadow-red-500/5 animate-in zoom-in-95 duration-200">
             {/* Hologram Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-b from-amber-500/5 via-transparent to-transparent pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-b from-red-500/5 via-transparent to-transparent pointer-events-none" />
             
             {/* Pass Header */}
             <div className="border-b border-zinc-900 pb-4">
-              <span className="text-[10px] font-black tracking-[0.2em] text-amber-500 block">CPM VIP MEETINGS</span>
+              <span className="text-[10px] font-black tracking-[0.2em] text-red-500 block">CPM VIP MEETINGS</span>
               <h3 className="text-lg font-serif font-black text-white mt-1">VERIFIED MEETING PASS</h3>
             </div>
 
             {/* QR Code & ID */}
             <div className="space-y-3">
-              <div className="bg-white p-4 rounded-xl inline-block border-4 border-amber-500">
+              <div className="bg-white p-4 rounded-xl inline-block border-4 border-red-500">
                 <QrCode className="h-32 w-32 text-black" />
               </div>
-              <div className="font-mono text-sm font-black text-amber-400 tracking-wider">
+              <div className="font-mono text-sm font-black text-red-400 tracking-wider">
                 {activeBooking.id}
               </div>
             </div>
@@ -434,7 +434,7 @@ export default function BookingTracker({ bookings, preselectedBookingId, onAddMe
               </button>
               <button
                 onClick={() => setShowPass(false)}
-                className="flex-1 py-2.5 rounded-xl text-xs font-bold bg-amber-500 text-black hover:opacity-90 transition"
+                className="flex-1 py-2.5 rounded-xl text-xs font-bold bg-red-500 text-black hover:opacity-90 transition"
               >
                 Close Pass
               </button>
